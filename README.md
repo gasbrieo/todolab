@@ -1,5 +1,9 @@
 # Todolab
 
+![GitHub last commit](https://img.shields.io/github/last-commit/gasbrieo/todolab?style=for-the-badge)
+
+## Overview
+
 **Todolab** is a fullstack To-Do application built with different technologies. It includes:
 
 - Backends: .NET and Python
