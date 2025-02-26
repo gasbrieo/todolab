@@ -10,66 +10,136 @@
 
 // Import Routes
 
-import { Route as rootRoute } from "./routes/__root";
-import { Route as IndexImport } from "./routes/index";
+import { Route as rootRoute } from './routes/__root'
+import { Route as SecureImport } from './routes/_secure'
+import { Route as GuestImport } from './routes/_guest'
+import { Route as GuestIndexImport } from './routes/_guest/index'
+import { Route as SecureDashboardImport } from './routes/_secure/dashboard'
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
-  id: "/",
-  path: "/",
+const SecureRoute = SecureImport.update({
+  id: '/_secure',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
+
+const GuestRoute = GuestImport.update({
+  id: '/_guest',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const GuestIndexRoute = GuestIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => GuestRoute,
+} as any)
+
+const SecureDashboardRoute = SecureDashboardImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => SecureRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module "@tanstack/react-router" {
+declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    "/": {
-      id: "/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
+    '/_guest': {
+      id: '/_guest'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof GuestImport
+      parentRoute: typeof rootRoute
+    }
+    '/_secure': {
+      id: '/_secure'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof SecureImport
+      parentRoute: typeof rootRoute
+    }
+    '/_secure/dashboard': {
+      id: '/_secure/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof SecureDashboardImport
+      parentRoute: typeof SecureImport
+    }
+    '/_guest/': {
+      id: '/_guest/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof GuestIndexImport
+      parentRoute: typeof GuestImport
+    }
   }
 }
 
 // Create and export the route tree
 
+interface GuestRouteChildren {
+  GuestIndexRoute: typeof GuestIndexRoute
+}
+
+const GuestRouteChildren: GuestRouteChildren = {
+  GuestIndexRoute: GuestIndexRoute,
+}
+
+const GuestRouteWithChildren = GuestRoute._addFileChildren(GuestRouteChildren)
+
+interface SecureRouteChildren {
+  SecureDashboardRoute: typeof SecureDashboardRoute
+}
+
+const SecureRouteChildren: SecureRouteChildren = {
+  SecureDashboardRoute: SecureDashboardRoute,
+}
+
+const SecureRouteWithChildren =
+  SecureRoute._addFileChildren(SecureRouteChildren)
+
 export interface FileRoutesByFullPath {
-  "/": typeof IndexRoute;
+  '': typeof SecureRouteWithChildren
+  '/dashboard': typeof SecureDashboardRoute
+  '/': typeof GuestIndexRoute
 }
 
 export interface FileRoutesByTo {
-  "/": typeof IndexRoute;
+  '': typeof SecureRouteWithChildren
+  '/dashboard': typeof SecureDashboardRoute
+  '/': typeof GuestIndexRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/": typeof IndexRoute;
+  __root__: typeof rootRoute
+  '/_guest': typeof GuestRouteWithChildren
+  '/_secure': typeof SecureRouteWithChildren
+  '/_secure/dashboard': typeof SecureDashboardRoute
+  '/_guest/': typeof GuestIndexRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "/";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/";
-  id: "__root__" | "/";
-  fileRoutesById: FileRoutesById;
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths: '' | '/dashboard' | '/'
+  fileRoutesByTo: FileRoutesByTo
+  to: '' | '/dashboard' | '/'
+  id: '__root__' | '/_guest' | '/_secure' | '/_secure/dashboard' | '/_guest/'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
+  GuestRoute: typeof GuestRouteWithChildren
+  SecureRoute: typeof SecureRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-};
+  GuestRoute: GuestRouteWithChildren,
+  SecureRoute: SecureRouteWithChildren,
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
@@ -77,11 +147,29 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/_guest",
+        "/_secure"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/_guest": {
+      "filePath": "_guest.tsx",
+      "children": [
+        "/_guest/"
+      ]
+    },
+    "/_secure": {
+      "filePath": "_secure.tsx",
+      "children": [
+        "/_secure/dashboard"
+      ]
+    },
+    "/_secure/dashboard": {
+      "filePath": "_secure/dashboard.tsx",
+      "parent": "/_secure"
+    },
+    "/_guest/": {
+      "filePath": "_guest/index.tsx",
+      "parent": "/_guest"
     }
   }
 }
