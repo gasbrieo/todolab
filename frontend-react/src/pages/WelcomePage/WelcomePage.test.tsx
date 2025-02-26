@@ -1,23 +1,12 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { useNavigate } from "@tanstack/react-router";
+import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 
-import { useAuthStore } from "@/stores/authStore";
+import { keycloak } from "@/libs/keycloak";
 
 import WelcomePage from "./WelcomePage";
 
-vi.mock("@tanstack/react-router", () => ({
-  useNavigate: vi.fn(),
-}));
-
 describe("WelcomePage", () => {
-  const navigateMock = vi.fn();
-
-  beforeEach(() => {
-    vi.mocked(useNavigate).mockReturnValue(navigateMock);
-  });
-
   it("should display the page title", () => {
     render(<WelcomePage />);
 
@@ -30,8 +19,6 @@ describe("WelcomePage", () => {
     const loginButton = screen.getByRole("button", { name: "Login" });
     await userEvent.click(loginButton);
 
-    expect(useAuthStore.getState().user).not.toBeNull();
-    expect(useAuthStore.getState().user?.name).toBe("John Doe");
-    expect(navigateMock).toHaveBeenCalledWith({ to: "/dashboard" });
+    expect(keycloak.login).toHaveBeenCalledTimes(1);
   });
 });

@@ -1,21 +1,37 @@
 import { create } from "zustand";
 
-type User = { name: string } | null;
+import { keycloak, keycloakInitOptions } from "@/libs/keycloak";
+
+type User = { name: string; token: string } | null;
 
 type AuthState = {
   user: User;
-  login: (username: string) => void;
-  logout: () => void;
+  init: () => Promise<void>;
+  login: () => Promise<void>;
+  logout: () => Promise<void>;
 };
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
 
-  login: (username) => {
-    set({ user: { name: username } });
+  init: async () => {
+    const authenticated = await keycloak.init(keycloakInitOptions);
+
+    if (authenticated) {
+      set({
+        user: {
+          name: keycloak.tokenParsed?.preferred_username,
+          token: keycloak.token ?? "",
+        },
+      });
+    }
   },
 
-  logout: () => {
-    set({ user: null });
+  login: async () => {
+    await keycloak.login({ redirectUri: window.location.origin });
+  },
+
+  logout: async () => {
+    await keycloak.logout();
   },
 }));
