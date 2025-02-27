@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC } from "react";
+import { type FC, useEffect, useState } from "react";
 import { RouterProvider } from "@tanstack/react-router";
 
 import router from "./router";

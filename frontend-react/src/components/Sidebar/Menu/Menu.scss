@@ -1,0 +1,13 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+
+  &__sub-heading {
+    opacity: 0.5;
+    overflow: hidden;
+    padding: 12px;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
