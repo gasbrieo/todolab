@@ -53,4 +53,4 @@ jobs:
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.token=${{ secrets.FRONTEND_REACT_SONAR_TOKEN }} \
             -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
-            -Dsonar.exclusions=**/*.test.tsx,**/index.ts,**/setupTests.ts,**/main.tsx
+            -Dsonar.exclusions="**/*.test.tsx,**/index.ts,**/setupTests.ts,**/main.tsx,**/__mocks__/**"
