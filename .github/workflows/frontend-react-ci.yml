@@ -1,0 +1,56 @@
+name: Frontend React CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main", "develop", "feature/*"]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./frontend-react
+
+    permissions:
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 23.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run StyleLint
+        run: npm run stylelint
+
+      - name: Run Build
+        run: npm run build
+
+      - name: Run Tests
+        run: npm run test:coverage
+
+      - name: Run SonarCloud Scan
+        run: |
+          npx sonar-scanner \
+            -Dsonar.projectKey=gasbrieo_todolab_frontend-react \
+            -Dsonar.projectName=todolab_frontend-react \
+            -Dsonar.organization=gasbrieo \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.token=${{ secrets.FRONTEND_REACT_SONAR_TOKEN }} \
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+            -Dsonar.exclusions="**/*.test.tsx,**/index.ts,**/setupTests.ts,**/main.tsx,**/__mocks__/**"
