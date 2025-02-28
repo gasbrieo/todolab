@@ -15,7 +15,7 @@ describe("Sidebar", () => {
     expect(container.firstChild).toHaveClass("sidebar--collapsed");
   });
 
-  it("should contain additional class names", () => {
+  it("should contain additional classnames", () => {
     const { container } = render(<Sidebar className="custom-class">Content</Sidebar>);
 
     expect(container.firstChild).toHaveClass("sidebar");

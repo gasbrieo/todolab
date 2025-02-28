@@ -5,16 +5,7 @@ import { render, screen } from "@testing-library/react";
 import MenuLink from "./MenuLink";
 
 vi.mock("@tanstack/react-router", () => ({
-  Link: ({
-    children,
-    className,
-    activeProps,
-    ...props
-  }: {
-    children: ReactNode;
-    className?: string;
-    activeProps?: { className?: string };
-  }) => (
+  Link: ({ children, className, activeProps, ...props }: { children: ReactNode; className?: string; activeProps?: { className?: string } }) => (
     <a
       className={`${className ?? ""} ${activeProps?.className ?? ""}`}
       {...props}
@@ -45,7 +36,7 @@ describe("MenuLink", () => {
     expect(screen.getByTestId("icon")).toBeInTheDocument();
   });
 
-  it("should contain additional class names", () => {
+  it("should contain additional classnames", () => {
     const { container } = render(
       <MenuLink
         to="/"

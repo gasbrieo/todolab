@@ -3,8 +3,7 @@ import type * as ZustandExportedTypes from "zustand";
 export * from "zustand";
 import { act } from "@testing-library/react";
 
-const { create: actualCreate, createStore: actualCreateStore } =
-  await vi.importActual<typeof ZustandExportedTypes>("zustand");
+const { create: actualCreate, createStore: actualCreateStore } = await vi.importActual<typeof ZustandExportedTypes>("zustand");
 
 export const storeResetFns = new Set<() => void>();
 
@@ -31,9 +30,7 @@ const createStoreUncurried = <T>(stateCreator: ZustandExportedTypes.StateCreator
 };
 
 export const createStore = (<T>(stateCreator: ZustandExportedTypes.StateCreator<T>) => {
-  return typeof stateCreator === "function"
-    ? createStoreUncurried(stateCreator)
-    : createStoreUncurried;
+  return typeof stateCreator === "function" ? createStoreUncurried(stateCreator) : createStoreUncurried;
 }) as typeof ZustandExportedTypes.createStore;
 
 afterEach(() => {

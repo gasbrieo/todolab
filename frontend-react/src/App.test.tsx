@@ -21,7 +21,7 @@ describe("App", () => {
 
     render(<App />);
 
-    expect(await screen.findByText("WelcomePage")).toBeInTheDocument();
+    expect(await screen.findByText("Welcome!")).toBeInTheDocument();
   });
 
   it("should render the dashboard page when user logged in", async () => {
@@ -63,7 +63,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("WelcomePage")).toBeInTheDocument();
+      expect(await screen.findByText("Welcome!")).toBeInTheDocument();
     });
   });
 
@@ -95,7 +95,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("WelcomePage")).toBeInTheDocument();
+      expect(await screen.findByText("Welcome!")).toBeInTheDocument();
     });
   });
 
@@ -112,7 +112,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("WelcomePage")).toBeInTheDocument();
+      expect(await screen.findByText("Welcome!")).toBeInTheDocument();
     });
 
     it("should redirect to dashboard page when authenticated", async () => {

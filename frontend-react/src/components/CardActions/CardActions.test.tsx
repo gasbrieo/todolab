@@ -1,19 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-import Topbar from "./Topbar";
+import CardActions from "./CardActions";
 
-describe("Topbar", () => {
+describe("CardActions", () => {
   it("should render content", () => {
-    render(<Topbar>Content</Topbar>);
+    render(<CardActions>Content</CardActions>);
 
     expect(screen.getByText("Content")).toBeInTheDocument();
   });
 
   it("should contain additional classnames", () => {
-    const { container } = render(<Topbar className="custom-class">Content</Topbar>);
+    const { container } = render(<CardActions className="custom-class">Content</CardActions>);
 
-    expect(container.firstChild).toHaveClass("topbar");
+    expect(container.firstChild).toHaveClass("card-actions");
     expect(container.firstChild).toHaveClass("custom-class");
   });
 });

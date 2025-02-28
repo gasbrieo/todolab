@@ -15,7 +15,7 @@ describe("Icon", () => {
     expect(screen.getByTestId("icon")).toBeInTheDocument();
   });
 
-  it("should contain additional class names", () => {
+  it("should contain additional classnames", () => {
     const { container } = render(
       <Icon
         name="LayoutDashboard"
