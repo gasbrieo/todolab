@@ -35,7 +35,7 @@ describe("Menu", () => {
     expect(screen.getByText("...")).toBeInTheDocument();
   });
 
-  it("should contain additional class names", () => {
+  it("should contain additional classnames", () => {
     const { container } = render(
       <SidebarContext.Provider value={{ isCollapsed: false }}>
         <Menu className="custom-class">Content</Menu>

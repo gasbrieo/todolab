@@ -10,22 +10,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "text" | "contained" | "outlined";
 }
 
-const Button: FC<ButtonProps> = ({
-  children,
-  className,
-  endIcon,
-  size = "medium",
-  startIcon,
-  variant = "text",
-  ...rest
-}) => {
+const Button: FC<ButtonProps> = ({ children, className, endIcon, size = "medium", startIcon, variant = "text", ...rest }) => {
   return (
     <button
       className={classNames(
         "button",
         {
-          [`button--${variant}`]: variant,
-          [`button--${size}`]: size,
+          [`button--variant-${variant}`]: variant,
+          [`button--size-${size}`]: size,
         },
         className
       )}

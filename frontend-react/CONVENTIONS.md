@@ -44,3 +44,27 @@ When writing unit tests, use the following conventions for test titles:
 
 - `should remove`: Use this when testing if an item is removed from a collection.
   - Example: `should remove the item from the list on delete action`
+
+## Styling Conventions
+
+### When to Use `px` vs. `rem`
+
+- **Use `px` for fixed sizes** when precise control is needed, like borders, icons, and small UI elements.
+
+  - Example: `border: 1px solid #ccc;`
+  - Example: `icon width: 24px;`
+
+- **Use `rem` for scalable sizes**, especially for typography, spacing (margin/padding), and layout dimensions.
+  - Example: `font-size: 1.125rem;` (equals `18px` if root `font-size` is `16px`)
+  - Example: `margin: 1.5rem;`
+
+### Why Prefer `rem`?
+
+- It **scales with user preferences**, making it more accessible.
+- It avoids cascading issues from `em` (which depends on the parent element's font-size).
+- It makes it easier to maintain a consistent, responsive design across different devices.
+
+### When to Use `em`
+
+- Use `em` only when you want an element to scale based on its parent's font size, like in buttons or nested components.
+  - Example: `padding: 1em;` (depends on the font size of the button itself)
