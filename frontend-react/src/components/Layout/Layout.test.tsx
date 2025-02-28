@@ -34,6 +34,7 @@ describe("Layout", () => {
 
     expect(screen.getByText("TodoLab")).toBeInTheDocument();
     expect(screen.getByText("Dashboard")).toBeInTheDocument();
+    expect(screen.getByText("Todos")).toBeInTheDocument();
 
     expect(screen.getByTestId("Topbar_ToggleSidebarButton")).toBeInTheDocument();
     expect(screen.getByTestId("Topbar_LogoutButton")).toBeInTheDocument();

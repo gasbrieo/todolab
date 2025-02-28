@@ -31,6 +31,12 @@ const Layout: FC = () => {
           >
             Dashboard
           </MenuLink>
+          <MenuLink
+            to="/todos"
+            icon={<Icon name="ListTodo" />}
+          >
+            Todos
+          </MenuLink>
         </Menu>
       </Sidebar>
       <div className="layout__wrapper">
