@@ -8,16 +8,7 @@ import { keycloak } from "@/libs/keycloak";
 import Layout from "./Layout";
 
 vi.mock("@tanstack/react-router", () => ({
-  Link: ({
-    children,
-    className,
-    activeProps,
-    ...props
-  }: {
-    children: ReactNode;
-    className?: string;
-    activeProps?: { className?: string };
-  }) => (
+  Link: ({ children, className, activeProps, ...props }: { children: ReactNode; className?: string; activeProps?: { className?: string } }) => (
     <a
       className={`${className ?? ""} ${activeProps?.className ?? ""}`}
       {...props}
