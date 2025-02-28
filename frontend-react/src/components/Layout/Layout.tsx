@@ -3,14 +3,15 @@ import { Outlet } from "@tanstack/react-router";
 
 import { useAuthStore } from "@/stores/authStore";
 
+import Button from "../Button";
 import Icon from "../Icon/Icon";
 import Sidebar from "../Sidebar";
+import Logo from "../Sidebar/Logo/Logo";
 import Menu from "../Sidebar/Menu";
 import MenuLink from "../Sidebar/MenuLink";
 import Topbar from "../Topbar";
 
 import "./Layout.scss";
-import Logo from "../Sidebar/Logo/Logo";
 
 const Layout: FC = () => {
   const logout = useAuthStore((state) => state.logout);
@@ -48,8 +49,14 @@ const Layout: FC = () => {
       </Sidebar>
       <div className="layout__wrapper">
         <Topbar>
-          <button onClick={handleToggleSidebar}>Toggle Sidebar</button>
-          <button onClick={handleLogout}>Logout</button>
+          <Button
+            icon={<Icon name="Menu" />}
+            onClick={handleToggleSidebar}
+          />
+          <Button
+            icon={<Icon name="LogOut" />}
+            onClick={handleLogout}
+          />
         </Topbar>
         <main className="layout__content">
           <Outlet />
