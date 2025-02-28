@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
-import type { FC, HTMLAttributes } from "react";
+import { type FC, type HTMLAttributes, useMemo } from "react";
 
 import { SidebarContext } from "./SidebarContext";
 
@@ -11,8 +11,10 @@ interface SidebarProps extends HTMLAttributes<HTMLElement> {
 }
 
 const Sidebar: FC<SidebarProps> = ({ children, className, isCollapsed, ...rest }) => {
+  const contextValue = useMemo(() => ({ isCollapsed }), [isCollapsed]);
+
   return (
-    <SidebarContext.Provider value={{ isCollapsed }}>
+    <SidebarContext.Provider value={contextValue}>
       <aside
         className={classNames(
           "sidebar",
