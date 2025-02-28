@@ -1,15 +1,15 @@
 .menu {
+  border-bottom: 1px solid rgb(0 0 0 / 6%);
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid rgb(0 0 0 / 6%);
 
   &__sub-heading {
+    font-size: 12px;
+    margin: 12px 0 0 12px;
     opacity: 0.5;
     overflow: hidden;
-    margin: 12px 0 0 12px;
     text-overflow: ellipsis;
     text-transform: uppercase;
     white-space: nowrap;
-    font-size: 12px;
   }
 }
