@@ -8,7 +8,7 @@ When writing unit tests, use the following conventions for test titles:
 
 - `should render`: Use this when testing if a component or element renders correctly.
 
-  - Example: `should render the login button`
+  - Example: `should render login button`
 
 - `should trigger`: Use this when testing if an event or action is triggered correctly.
 

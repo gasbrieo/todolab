@@ -1,0 +1,18 @@
+.sidebar {
+  border-right: 1px solid rgb(0 0 0 / 6%);
+  height: 100%;
+  min-width: 260px;
+  position: relative;
+  transition: width, left, right, 300ms;
+  width: 260px;
+
+  &--collapsed {
+    min-width: 64px;
+    width: 64px;
+  }
+
+  &__content {
+    height: 100%;
+    position: relative;
+  }
+}

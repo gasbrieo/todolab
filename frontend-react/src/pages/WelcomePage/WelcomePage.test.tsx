@@ -7,13 +7,13 @@ import { keycloak } from "@/libs/keycloak";
 import WelcomePage from "./WelcomePage";
 
 describe("WelcomePage", () => {
-  it("should display the page title", () => {
+  it("should render page title", () => {
     render(<WelcomePage />);
 
-    expect(screen.getByText("Welcome")).toBeInTheDocument();
+    expect(screen.getByText("WelcomePage")).toBeInTheDocument();
   });
 
-  it("should trigger the login event on button click", async () => {
+  it("should trigger login when login button click", async () => {
     render(<WelcomePage />);
 
     const loginButton = screen.getByRole("button", { name: "Login" });

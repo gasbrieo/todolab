@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC } from "react";
+import { type FC, useEffect, useState } from "react";
 import { RouterProvider } from "@tanstack/react-router";
 
 import router from "./router";
@@ -16,6 +16,7 @@ const App: FC = () => {
       .catch((error) => {
         console.error(error);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
