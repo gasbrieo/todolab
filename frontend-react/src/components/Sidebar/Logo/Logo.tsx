@@ -13,12 +13,14 @@ const Logo: FC<LogoProps> = ({ className, name, ...rest }) => {
       className={classNames("logo", className)}
       {...rest}
     >
-      <img
-        src="/vite.svg"
-        alt="Logo"
-        className="logo__icon"
-      />
-      <span className="logo__label">{name}</span>
+      <div className="logo__content">
+        <img
+          src="/vite.svg"
+          alt="Logo"
+          className="logo__icon"
+        />
+        <span className="logo__label">{name}</span>
+      </div>
     </div>
   );
 };

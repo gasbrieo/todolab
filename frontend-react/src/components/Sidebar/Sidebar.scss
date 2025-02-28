@@ -7,14 +7,12 @@
   width: 260px;
 
   &--collapsed {
-    min-width: 48px;
-    width: 48px;
+    min-width: 64px;
+    width: 64px;
   }
 
   &__content {
     height: 100%;
-    overflow: hidden auto;
     position: relative;
-    z-index: 3;
   }
 }
