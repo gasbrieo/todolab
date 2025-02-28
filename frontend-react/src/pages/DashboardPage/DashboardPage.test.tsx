@@ -4,9 +4,9 @@ import { render, screen } from "@testing-library/react";
 import DashboardPage from "./DashboardPage";
 
 describe("DashboardPage", () => {
-  it("should display the page title", () => {
+  it("should render page title", () => {
     render(<DashboardPage />);
 
-    expect(screen.getByText("Dashboard")).toBeInTheDocument();
+    expect(screen.getByText("DashboardPage")).toBeInTheDocument();
   });
 });

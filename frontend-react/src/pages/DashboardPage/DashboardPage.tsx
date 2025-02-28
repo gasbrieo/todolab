@@ -3,7 +3,7 @@ import type { FC } from "react";
 const DashboardPage: FC = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
+      <h1>DashboardPage</h1>
     </div>
   );
 };

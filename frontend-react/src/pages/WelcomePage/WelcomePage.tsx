@@ -7,7 +7,7 @@ const WelcomePage: FC = () => {
 
   return (
     <div>
-      <h1>Welcome</h1>
+      <h1>WelcomePage</h1>
       <button onClick={login}>Login</button>
     </div>
   );

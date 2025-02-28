@@ -3,7 +3,7 @@ import type { FC } from "react";
 const TodosPage: FC = () => {
   return (
     <div>
-      <h1>Todos</h1>
+      <h1>TodosPage</h1>
     </div>
   );
 };

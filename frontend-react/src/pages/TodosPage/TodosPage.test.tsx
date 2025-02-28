@@ -4,9 +4,9 @@ import { render, screen } from "@testing-library/react";
 import TodosPage from "./TodosPage";
 
 describe("TodosPage", () => {
-  it("should display the page title", () => {
+  it("should render page title", () => {
     render(<TodosPage />);
 
-    expect(screen.getByText("Todos")).toBeInTheDocument();
+    expect(screen.getByText("TodosPage")).toBeInTheDocument();
   });
 });
