@@ -4,17 +4,36 @@ import { type ButtonHTMLAttributes, FC, ReactNode } from "react";
 import "./Button.scss";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  icon?: ReactNode;
+  endIcon?: ReactNode;
+  size?: "small" | "medium" | "large";
+  startIcon?: ReactNode;
+  variant?: "text" | "contained" | "outlined";
 }
 
-const Button: FC<ButtonProps> = ({ children, className, icon, ...rest }) => {
+const Button: FC<ButtonProps> = ({
+  children,
+  className,
+  endIcon,
+  size = "medium",
+  startIcon,
+  variant = "text",
+  ...rest
+}) => {
   return (
     <button
-      className={classNames("button", className)}
+      className={classNames(
+        "button",
+        {
+          [`button--${variant}`]: variant,
+          [`button--${size}`]: size,
+        },
+        className
+      )}
       {...rest}
     >
-      {icon && <span className="button__icon">{icon}</span>}
-      {children && <span className="button__text">{children}</span>}
+      {startIcon && <span className="button__icon button__icon--start">{startIcon}</span>}
+      {children}
+      {endIcon && <span className="button__icon button__icon--end">{endIcon}</span>}
     </button>
   );
 };

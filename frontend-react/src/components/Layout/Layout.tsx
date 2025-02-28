@@ -42,15 +42,21 @@ const Layout: FC = () => {
       <div className="layout__wrapper">
         <Topbar>
           <Button
-            icon={<Icon name="Menu" />}
+            variant="outlined"
+            startIcon={<Icon name="Menu" />}
             data-testid="Topbar_ToggleSidebarButton"
             onClick={handleToggleSidebar}
-          />
+          >
+            Toggle Sidebar
+          </Button>
           <Button
-            icon={<Icon name="LogOut" />}
+            variant="outlined"
+            startIcon={<Icon name="LogOut" />}
             data-testid="Topbar_LogoutButton"
             onClick={handleLogout}
-          />
+          >
+            Logout
+          </Button>
         </Topbar>
         <main className="layout__content">
           <Outlet />
