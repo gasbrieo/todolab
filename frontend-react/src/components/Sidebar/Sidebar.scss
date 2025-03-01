@@ -1,12 +1,12 @@
 .sidebar {
   border-right: 1px solid rgb(0 0 0 / 6%);
+  display: flex;
+  flex-direction: column;
   height: 100%;
   min-width: 260px;
   position: relative;
   transition: width, left, right, 300ms;
   width: 260px;
-  display: flex;
-  flex-direction: column;
 
   &--collapsed {
     min-width: 64px;
