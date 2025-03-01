@@ -7,15 +7,16 @@ import Button from "../Button";
 import Icon from "../Icon";
 import IconButton from "../IconButton";
 import Sidebar from "../Sidebar";
+import Account from "../Sidebar/Account";
+import Divider from "../Sidebar/Divider";
+import Footer from "../Sidebar/Footer";
 import Logo from "../Sidebar/Logo";
 import Menu from "../Sidebar/Menu";
+import Navigation from "../Sidebar/Navigation";
 import MenuLink from "../Sidebar/MenuLink";
 import Topbar from "../Topbar";
 
 import "./Layout.scss";
-import Navigation from "../Sidebar/Navigation/Navigation";
-import Footer from "../Sidebar/Footer/Footer";
-import Account from "../Sidebar/Account/Account";
 
 const Layout: FC = () => {
   const logout = useAuthStore((state) => state.logout);
@@ -43,27 +44,14 @@ const Layout: FC = () => {
               Todos
             </MenuLink>
           </Menu>
-          <Menu subHeading="My Lists">
-            <MenuLink
-              to="/dashboard"
-              icon={<Icon name="LayoutDashboard" />}
-            >
-              Dashboard
-            </MenuLink>
-            <MenuLink
-              to="/todos"
-              icon={<Icon name="ListTodo" />}
-            >
-              Todos
-            </MenuLink>
-          </Menu>
         </Navigation>
         <Footer>
           <Menu>
+            <Divider />
             <Account
-              name="Gasbrieo"
-              email="gaberabreu.tech@gmail.com"
-              avatarUrl="https://avatars.githubusercontent.com/u/200009870?v=4"
+              name="TodoLab"
+              email="todolab@email.com"
+              avatarUrl="vite.svg"
             />
           </Menu>
         </Footer>
