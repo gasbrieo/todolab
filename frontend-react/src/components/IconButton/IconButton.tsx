@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { type ButtonHTMLAttributes, FC } from "react";
+import type { ButtonHTMLAttributes, FC } from "react";
 
 import "./IconButton.scss";
 

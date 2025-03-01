@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import { type FC, type HTMLAttributes, useMemo } from "react";
 
 import { SidebarContext } from "./SidebarContext";
@@ -25,12 +24,7 @@ const Sidebar: FC<SidebarProps> = ({ children, className, isCollapsed, ...rest }
         )}
         {...rest}
       >
-        <OverlayScrollbarsComponent
-          options={{ scrollbars: { autoHide: "leave" }, overflow: { x: "hidden" } }}
-          className="sidebar__content"
-        >
-          {children}
-        </OverlayScrollbarsComponent>
+        {children}
       </aside>
     </SidebarContext.Provider>
   );

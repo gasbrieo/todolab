@@ -13,6 +13,9 @@ import MenuLink from "../Sidebar/MenuLink";
 import Topbar from "../Topbar";
 
 import "./Layout.scss";
+import Navigation from "../Sidebar/Navigation/Navigation";
+import Footer from "../Sidebar/Footer/Footer";
+import Account from "../Sidebar/Account/Account";
 
 const Layout: FC = () => {
   const logout = useAuthStore((state) => state.logout);
@@ -25,20 +28,45 @@ const Layout: FC = () => {
     <div className="layout">
       <Sidebar isCollapsed={isCollapsed}>
         <Logo name="TodoLab" />
-        <Menu subHeading="General">
-          <MenuLink
-            to="/dashboard"
-            icon={<Icon name="LayoutDashboard" />}
-          >
-            Dashboard
-          </MenuLink>
-          <MenuLink
-            to="/todos"
-            icon={<Icon name="ListTodo" />}
-          >
-            Todos
-          </MenuLink>
-        </Menu>
+        <Navigation>
+          <Menu subHeading="General">
+            <MenuLink
+              to="/dashboard"
+              icon={<Icon name="LayoutDashboard" />}
+            >
+              Dashboard
+            </MenuLink>
+            <MenuLink
+              to="/todos"
+              icon={<Icon name="ListTodo" />}
+            >
+              Todos
+            </MenuLink>
+          </Menu>
+          <Menu subHeading="My Lists">
+            <MenuLink
+              to="/dashboard"
+              icon={<Icon name="LayoutDashboard" />}
+            >
+              Dashboard
+            </MenuLink>
+            <MenuLink
+              to="/todos"
+              icon={<Icon name="ListTodo" />}
+            >
+              Todos
+            </MenuLink>
+          </Menu>
+        </Navigation>
+        <Footer>
+          <Menu>
+            <Account
+              name="Bharat Kashyap"
+              email="bharatkashyap@outlook.com"
+              avatarUrl="https://avatars.githubusercontent.com/u/19550456"
+            />
+          </Menu>
+        </Footer>
       </Sidebar>
       <div className="layout__wrapper">
         <Topbar>

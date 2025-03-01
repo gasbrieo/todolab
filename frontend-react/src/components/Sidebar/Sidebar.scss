@@ -5,14 +5,11 @@
   position: relative;
   transition: width, left, right, 300ms;
   width: 260px;
+  display: flex;
+  flex-direction: column;
 
   &--collapsed {
     min-width: 64px;
     width: 64px;
-  }
-
-  &__content {
-    height: 100%;
-    position: relative;
   }
 }
