@@ -28,7 +28,7 @@ const Layout: FC = () => {
   return (
     <div className="layout">
       <Sidebar isCollapsed={isCollapsed}>
-        <Logo name="TodoLab" />
+        <Logo name="TodoLab!" />
         <Navigation>
           <Menu subHeading="General">
             <MenuLink

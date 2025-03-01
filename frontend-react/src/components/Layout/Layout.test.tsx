@@ -23,7 +23,7 @@ describe("Layout", () => {
   it("should render sidebar, topbar, and outlet", () => {
     render(<Layout />);
 
-    expect(screen.getByText("TodoLab")).toBeInTheDocument();
+    expect(screen.getByText("TodoLab!")).toBeInTheDocument();
     expect(screen.getByText("Dashboard")).toBeInTheDocument();
     expect(screen.getByText("Todos")).toBeInTheDocument();
 
