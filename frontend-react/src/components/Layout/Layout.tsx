@@ -61,9 +61,9 @@ const Layout: FC = () => {
         <Footer>
           <Menu>
             <Account
-              name="Bharat Kashyap"
-              email="bharatkashyap@outlook.com"
-              avatarUrl="https://avatars.githubusercontent.com/u/19550456"
+              name="Gasbrieo"
+              email="gaberabreu.tech@gmail.com"
+              avatarUrl="https://avatars.githubusercontent.com/u/200009870?v=4"
             />
           </Menu>
         </Footer>
