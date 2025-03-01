@@ -1,6 +1,5 @@
 .typography {
   line-height: 1.5;
-  margin: 0 0 0.35rem;
 
   &--variant-h1 {
     font-size: 6rem;
@@ -49,6 +48,11 @@
 
   &--variant-body2 {
     font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  &--variant-caption {
+    font-size: 0.75rem;
     font-weight: 400;
   }
 }

@@ -5,9 +5,14 @@ import { useAuthStore } from "@/stores/authStore";
 
 import Button from "../Button";
 import Icon from "../Icon";
+import IconButton from "../IconButton";
 import Sidebar from "../Sidebar";
+import Account from "../Sidebar/Account";
+import Divider from "../Sidebar/Divider";
+import Footer from "../Sidebar/Footer";
 import Logo from "../Sidebar/Logo";
 import Menu from "../Sidebar/Menu";
+import Navigation from "../Sidebar/Navigation";
 import MenuLink from "../Sidebar/MenuLink";
 import Topbar from "../Topbar";
 
@@ -23,32 +28,42 @@ const Layout: FC = () => {
   return (
     <div className="layout">
       <Sidebar isCollapsed={isCollapsed}>
-        <Logo name="TodoLab" />
-        <Menu subHeading="General">
-          <MenuLink
-            to="/dashboard"
-            icon={<Icon name="LayoutDashboard" />}
-          >
-            Dashboard
-          </MenuLink>
-          <MenuLink
-            to="/todos"
-            icon={<Icon name="ListTodo" />}
-          >
-            Todos
-          </MenuLink>
-        </Menu>
+        <Logo name="TodoLab!" />
+        <Navigation>
+          <Menu subHeading="General">
+            <MenuLink
+              to="/dashboard"
+              icon={<Icon name="LayoutDashboard" />}
+            >
+              Dashboard
+            </MenuLink>
+            <MenuLink
+              to="/todos"
+              icon={<Icon name="ListTodo" />}
+            >
+              Todos
+            </MenuLink>
+          </Menu>
+        </Navigation>
+        <Footer>
+          <Menu>
+            <Divider />
+            <Account
+              name="TodoLab"
+              email="todolab@email.com"
+              avatarUrl="vite.svg"
+            />
+          </Menu>
+        </Footer>
       </Sidebar>
       <div className="layout__wrapper">
         <Topbar>
-          <Button
-            variant="outlined"
-            startIcon={<Icon name="Menu" />}
+          <IconButton
             data-testid="Topbar_ToggleSidebarButton"
             onClick={handleToggleSidebar}
           >
-            Toggle Sidebar
-          </Button>
+            <Icon name="Menu" />
+          </IconButton>
           <Button
             variant="outlined"
             startIcon={<Icon name="LogOut" />}

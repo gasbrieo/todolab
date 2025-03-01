@@ -4,46 +4,61 @@
   position: relative;
   width: 100%;
 
-  &__icon {
-    align-items: center;
-    display: flex;
-    height: 35px;
-    justify-content: center;
-    margin-right: 16px;
-    min-width: 35px;
-    width: 35px;
-  }
-
-  &__label {
-    flex-grow: 1;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
   &__button {
     align-items: center;
     border-radius: 4px;
-    color: #222;
+    color: rgb(34 34 34);
     cursor: pointer;
     display: flex;
-    margin: 8px;
-    padding: 6px;
+    margin: 0.5rem;
+    overflow: hidden;
+    padding: 0.375rem;
     text-decoration: none;
     transition:
       background-color 200ms ease-in-out,
       color 200ms ease-in-out;
 
-    &:hover {
-      background-color: rgb(0 0 0 / 15%);
-    }
+    &:not(&--active) {
+      &:hover {
+        background-color: rgb(0 0 0 / 10%);
+      }
 
-    &:active {
-      background-color: rgb(0 0 0 / 6%);
+      &:active {
+        background-color: rgb(0 0 0 / 30%);
+      }
     }
 
     &--active {
-      background-color: rgb(0 0 0 / 15%);
-      font-weight: 600;
+      background-color: rgb(25 118 210 / 10%);
+
+      &:hover {
+        background-color: rgb(25 118 210 / 30%);
+      }
+
+      &:active {
+        background-color: rgb(25 118 210 / 50%);
+      }
     }
+  }
+
+  &__icon {
+    align-items: center;
+    color: rgb(0 0 0 / 50%);
+    display: flex;
+    height: 35px;
+    justify-content: center;
+    margin-right: 1rem;
+    min-width: 35px;
+    width: 35px;
+  }
+
+  &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .menu-link__button--active .menu-link__icon {
+    color: rgb(25 118 210);
   }
 }

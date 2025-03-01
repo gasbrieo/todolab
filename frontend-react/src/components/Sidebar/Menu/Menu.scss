@@ -1,11 +1,10 @@
 .menu {
-  display: flex;
-  flex-direction: column;
-
   &__sub-heading {
-    font-size: 12px;
-    margin: 12px 0 0 12px;
-    opacity: 0.5;
+    color: rgb(0 0 0 / 60%);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 0.75rem 0 0 0.75rem;
     overflow: hidden;
     text-overflow: ellipsis;
     text-transform: uppercase;
