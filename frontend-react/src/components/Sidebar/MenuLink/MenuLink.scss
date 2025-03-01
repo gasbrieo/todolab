@@ -16,6 +16,7 @@
     transition:
       background-color 200ms ease-in-out,
       color 200ms ease-in-out;
+    overflow: hidden;
 
     &:not(&--active) {
       &:hover {
@@ -52,9 +53,9 @@
   }
 
   &__text {
-    flex-grow: 1;
     text-overflow: ellipsis;
     white-space: nowrap;
+    overflow: hidden;
   }
 
   .menu-link__button--active .menu-link__icon {

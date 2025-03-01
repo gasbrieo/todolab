@@ -21,9 +21,12 @@ const MenuLink: FC<MenuLinkProps> = ({ children, className, icon, ...rest }) => 
         {...rest}
       >
         {icon && <div className="menu-link__icon">{icon}</div>}
-        <div className="menu-link__text">
-          <Typography variant="body1">{children}</Typography>
-        </div>
+        <Typography
+          variant="body1"
+          className="menu-link__text"
+        >
+          {children}
+        </Typography>
       </Link>
     </li>
   );

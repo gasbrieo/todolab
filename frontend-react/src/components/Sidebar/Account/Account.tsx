@@ -29,7 +29,12 @@ const Account: FC<AccountProps> = ({ className, name, email, avatarUrl }) => {
           >
             {name}
           </Typography>
-          <Typography variant="caption">{email}</Typography>
+          <Typography
+            variant="caption"
+            className="account__email"
+          >
+            {email}
+          </Typography>
         </div>
       </div>
     </li>
