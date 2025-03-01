@@ -5,6 +5,7 @@ import { useAuthStore } from "@/stores/authStore";
 
 import Button from "../Button";
 import Icon from "../Icon";
+import IconButton from "../IconButton";
 import Sidebar from "../Sidebar";
 import Logo from "../Sidebar/Logo";
 import Menu from "../Sidebar/Menu";
@@ -41,14 +42,12 @@ const Layout: FC = () => {
       </Sidebar>
       <div className="layout__wrapper">
         <Topbar>
-          <Button
-            variant="outlined"
-            startIcon={<Icon name="Menu" />}
+          <IconButton
             data-testid="Topbar_ToggleSidebarButton"
             onClick={handleToggleSidebar}
           >
-            Toggle Sidebar
-          </Button>
+            <Icon name="Menu" />
+          </IconButton>
           <Button
             variant="outlined"
             startIcon={<Icon name="LogOut" />}
