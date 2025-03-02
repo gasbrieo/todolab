@@ -1,5 +1,3 @@
-import type { FC } from "react";
-
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import CardActions from "@/components/CardActions";
@@ -9,7 +7,7 @@ import { useAuthStore } from "@/stores/authStore";
 
 import "./WelcomePage.scss";
 
-const WelcomePage: FC = () => {
+const WelcomePage = () => {
   const login = useAuthStore((state) => state.login);
 
   return (

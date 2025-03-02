@@ -1,9 +1,23 @@
-import type { FC } from "react";
+import Icon from "@/components/Icon";
+import IconButton from "@/components/IconButton";
+import Typography from "@/components/Typography";
+import { useSidebarStore } from "@/stores/sidebarStore";
 
-const TodosPage: FC = () => {
+import "./TodosPage.scss";
+
+const TodosPage = () => {
+  const toggle = useSidebarStore((state) => state.toggle);
+
   return (
-    <div>
-      <h1>TodosPage</h1>
+    <div className="todos-page">
+      <IconButton
+        data-testid="todos-page_toggle-sidebar"
+        onClick={toggle}
+        style={{ marginRight: "0.5rem", color: "rgb(0 0 0 / 50%)" }}
+      >
+        <Icon name="Menu" />
+      </IconButton>
+      <Typography variant="h6">Todos Page</Typography>
     </div>
   );
 };

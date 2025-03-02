@@ -1,6 +1,4 @@
-import type { FC } from "react";
-
-const DashboardPage: FC = () => {
+const DashboardPage = () => {
   return (
     <div>
       <h1>DashboardPage</h1>

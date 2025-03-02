@@ -80,7 +80,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("TodosPage")).toBeInTheDocument();
+      expect(await screen.findByText("Todos Page")).toBeInTheDocument();
     });
 
     it("should redirect to welcome page when not authenticated", async () => {

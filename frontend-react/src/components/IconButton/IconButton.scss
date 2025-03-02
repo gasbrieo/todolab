@@ -3,7 +3,6 @@
   appearance: none;
   background-color: transparent;
   border: none;
-  border-radius: 50%;
   box-sizing: border-box;
   display: inline-flex;
   margin: 0;
@@ -41,5 +40,13 @@
   &--size-large {
     font-size: 1.75rem;
     padding: 0.75rem;
+  }
+
+  &--shape-square {
+    border-radius: 4px;
+  }
+
+  &--shape-rounded {
+    border-radius: 50%;
   }
 }

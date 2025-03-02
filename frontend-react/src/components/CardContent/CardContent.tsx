@@ -3,9 +3,7 @@ import type { HTMLAttributes } from "react";
 
 import "./CardContent.scss";
 
-interface CardContentProps extends HTMLAttributes<HTMLDivElement> {}
-
-const CardContent = ({ children, className, ...rest }: CardContentProps) => {
+const CardContent = ({ children, className, ...rest }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={classNames("card-content", className)}

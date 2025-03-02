@@ -17,6 +17,13 @@ describe("IconButton", () => {
     expect(container.firstChild).toHaveClass("icon-button--size-large");
   });
 
+  it("should contain shape classename", () => {
+    const { container } = render(<IconButton shape="rounded">Content</IconButton>);
+
+    expect(container.firstChild).toHaveClass("icon-button");
+    expect(container.firstChild).toHaveClass("icon-button--shape-rounded");
+  });
+
   it("should contain additional classnames", () => {
     const { container } = render(<IconButton className="custom-class">Content</IconButton>);
 
