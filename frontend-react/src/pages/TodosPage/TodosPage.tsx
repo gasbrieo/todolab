@@ -11,9 +11,9 @@ const TodosPage = () => {
   return (
     <div className="todos-page">
       <IconButton
+        className="dashboard-page__toggle-sidebar"
         data-testid="todos-page_toggle-sidebar"
         onClick={toggle}
-        style={{ marginRight: "0.5rem", color: "rgb(0 0 0 / 50%)" }}
       >
         <Icon name="Menu" />
       </IconButton>

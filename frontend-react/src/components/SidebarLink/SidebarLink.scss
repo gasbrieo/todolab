@@ -1,6 +1,6 @@
 @use "sass:color";
 
-.menu-link {
+.sidebar-link {
   position: relative;
   width: 100%;
 
@@ -58,7 +58,7 @@
     white-space: nowrap;
   }
 
-  .menu-link__button--active .menu-link__icon {
+  .sidebar-link__button--active .sidebar-link__icon {
     color: rgb(25 118 210);
   }
 }

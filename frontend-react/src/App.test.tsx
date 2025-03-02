@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { createMemoryHistory, RouterProvider } from "@tanstack/react-router";
 
 import App from "./App";
 import { keycloak } from "./libs/keycloak";
-import { createMemoryHistory, RouterProvider } from "@tanstack/react-router";
 import router from "./router";
 import { useAuthStore } from "./stores/authStore";
 
@@ -30,7 +30,7 @@ describe("App", () => {
 
     render(<App />);
 
-    expect(await screen.findByText("DashboardPage")).toBeInTheDocument();
+    expect(await screen.findByText("Dashboard Page")).toBeInTheDocument();
   });
 });
 
@@ -48,7 +48,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("DashboardPage")).toBeInTheDocument();
+      expect(await screen.findByText("Dashboard Page")).toBeInTheDocument();
     });
 
     it("should redirect to welcome page when not authenticated", async () => {
@@ -127,7 +127,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("DashboardPage")).toBeInTheDocument();
+      expect(await screen.findByText("Dashboard Page")).toBeInTheDocument();
     });
   });
 });

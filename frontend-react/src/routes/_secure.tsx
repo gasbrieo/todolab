@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 
-import Layout from "@/layout/Layout";
+import SecureLayout from "@/components/SecureLayout";
 import { useAuthStore } from "@/stores/authStore";
 
 export const Route = createFileRoute("/_secure")({
@@ -12,5 +12,5 @@ export const Route = createFileRoute("/_secure")({
       });
     }
   },
-  component: Layout,
+  component: SecureLayout,
 });

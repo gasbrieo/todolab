@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-import MenuLink from "./MenuLink";
+import SidebarLink from "./SidebarLink";
 
 vi.mock("@tanstack/react-router", () => ({
   Link: ({ children, className, activeProps, ...props }: { children: ReactNode; className?: string; activeProps?: { className?: string } }) => (
@@ -15,38 +15,38 @@ vi.mock("@tanstack/react-router", () => ({
   ),
 }));
 
-describe("MenuLink", () => {
-  it("should render text", () => {
-    render(<MenuLink to="/">Text</MenuLink>);
+describe("SidebarLink", () => {
+  it("should render content", () => {
+    render(<SidebarLink to="/">Content</SidebarLink>);
 
-    expect(screen.getByText("Text")).toBeInTheDocument();
+    expect(screen.getByText("Content")).toBeInTheDocument();
   });
 
-  it("should render text and icon", () => {
+  it("should render content and icon", () => {
     render(
-      <MenuLink
+      <SidebarLink
         to="/"
         icon={<span data-testid="icon" />}
       >
-        Text
-      </MenuLink>
+        Content
+      </SidebarLink>
     );
 
-    expect(screen.getByText("Text")).toBeInTheDocument();
+    expect(screen.getByText("Content")).toBeInTheDocument();
     expect(screen.getByTestId("icon")).toBeInTheDocument();
   });
 
   it("should contain additional classnames", () => {
     const { container } = render(
-      <MenuLink
+      <SidebarLink
         to="/"
         className="custom-class"
       >
-        Text
-      </MenuLink>
+        Content
+      </SidebarLink>
     );
 
-    expect(container.firstChild).toHaveClass("menu-link");
+    expect(container.firstChild).toHaveClass("sidebar-link");
     expect(container.firstChild).toHaveClass("custom-class");
   });
 });

@@ -1,14 +1,14 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 
-import { SidebarContext } from "../SidebarContext";
-import Menu from "./Menu";
+import SidebarMenu from "./SidebarMenu";
+import { SidebarContext } from "../Sidebar/SidebarContext";
 
-describe("Menu", () => {
+describe("SidebarMenu", () => {
   it("should render content", () => {
     render(
       <SidebarContext.Provider value={{ isCollapsed: false }}>
-        <Menu>Content</Menu>
+        <SidebarMenu>Content</SidebarMenu>
       </SidebarContext.Provider>
     );
 
@@ -18,7 +18,7 @@ describe("Menu", () => {
   it("should render subHeading when provided", () => {
     render(
       <SidebarContext.Provider value={{ isCollapsed: false }}>
-        <Menu subHeading="SubHeading">Content</Menu>
+        <SidebarMenu subHeading="SubHeading">Content</SidebarMenu>
       </SidebarContext.Provider>
     );
 
@@ -28,7 +28,7 @@ describe("Menu", () => {
   it("should render subHeading as ellipsis", () => {
     render(
       <SidebarContext.Provider value={{ isCollapsed: true }}>
-        <Menu subHeading="SubHeading">Content</Menu>
+        <SidebarMenu subHeading="SubHeading">Content</SidebarMenu>
       </SidebarContext.Provider>
     );
 
@@ -38,11 +38,11 @@ describe("Menu", () => {
   it("should contain additional classnames", () => {
     const { container } = render(
       <SidebarContext.Provider value={{ isCollapsed: false }}>
-        <Menu className="custom-class">Content</Menu>
+        <SidebarMenu className="custom-class">Content</SidebarMenu>
       </SidebarContext.Provider>
     );
 
-    expect(container.firstChild).toHaveClass("menu");
+    expect(container.firstChild).toHaveClass("sidebar-menu");
     expect(container.firstChild).toHaveClass("custom-class");
   });
 });

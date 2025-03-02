@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { type FC, type HTMLAttributes, useMemo } from "react";
+import { useMemo, type HTMLAttributes } from "react";
 
 import { SidebarContext } from "./SidebarContext";
 
@@ -9,7 +9,7 @@ interface SidebarProps extends HTMLAttributes<HTMLElement> {
   isCollapsed?: boolean;
 }
 
-const Sidebar: FC<SidebarProps> = ({ children, className, isCollapsed, ...rest }) => {
+const Sidebar = ({ children, className, isCollapsed, ...rest }: SidebarProps) => {
   const contextValue = useMemo(() => ({ isCollapsed }), [isCollapsed]);
 
   return (
