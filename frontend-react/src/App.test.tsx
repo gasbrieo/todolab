@@ -26,7 +26,7 @@ describe("App", () => {
 
   it("should render the dashboard page when user logged in", async () => {
     vi.mocked(keycloak.init).mockResolvedValue(true);
-    keycloak.tokenParsed = { preferred_username: "John Doe" };
+    keycloak.tokenParsed = {};
 
     render(<App />);
 
@@ -37,7 +37,7 @@ describe("App", () => {
 describe("Router", () => {
   describe("Dashboard", () => {
     it("should allow access to dashboard page when authenticated", async () => {
-      useAuthStore.setState({ user: { name: "", token: "" } });
+      useAuthStore.setState({ user: { avatarUrl: "", email: "", name: "", token: "" } });
 
       const history = createMemoryHistory({ initialEntries: ["/dashboard"] });
 
@@ -69,7 +69,7 @@ describe("Router", () => {
 
   describe("Todos", () => {
     it("should allow access to todos page when authenticated", async () => {
-      useAuthStore.setState({ user: { name: "", token: "" } });
+      useAuthStore.setState({ user: { avatarUrl: "", email: "", name: "", token: "" } });
 
       const history = createMemoryHistory({ initialEntries: ["/todos"] });
 
@@ -116,7 +116,7 @@ describe("Router", () => {
     });
 
     it("should redirect to dashboard page when authenticated", async () => {
-      useAuthStore.setState({ user: { name: "", token: "" } });
+      useAuthStore.setState({ user: { avatarUrl: "", email: "", name: "", token: "" } });
 
       const history = createMemoryHistory({ initialEntries: ["/"] });
 

@@ -1,6 +1,10 @@
 import { ReactNode } from "react";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
+
+import { keycloak } from "@/libs/keycloak";
+import { useAuthStore } from "@/stores/authStore";
 
 import SecureLayout from "./SecureLayout";
 
@@ -17,7 +21,30 @@ vi.mock("@tanstack/react-router", () => ({
 }));
 
 describe("SecureLayout", () => {
-  it("should render sidebar", () => {
+  beforeEach(() => {
+    useAuthStore.setState({ user: { avatarUrl: "vite.svg", email: "gabriel@todolab.com", name: "Gabriel", token: "" } });
+  });
+
+  it("should render sidebar account", () => {
+    render(<SecureLayout />);
+
+    const avatar = screen.getByAltText("Gabriel");
+    expect(avatar).toBeInTheDocument();
+    expect(avatar).toHaveAttribute("src", "vite.svg");
+    expect(screen.getByText("Gabriel")).toBeInTheDocument();
+    expect(screen.getByText("gabriel@todolab.com")).toBeInTheDocument();
+  });
+
+  it("should trigger logout when sidebar account button click", async () => {
+    render(<SecureLayout />);
+
+    const logoutButton = screen.getByText("Gabriel");
+    await userEvent.click(logoutButton);
+
+    expect(keycloak.logout).toHaveBeenCalledTimes(1);
+  });
+
+  it("should render sidebar nav", () => {
     render(<SecureLayout />);
 
     expect(screen.getByText("Dashboard")).toBeInTheDocument();

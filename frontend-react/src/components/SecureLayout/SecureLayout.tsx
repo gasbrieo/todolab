@@ -2,19 +2,33 @@ import { Outlet } from "@tanstack/react-router";
 
 import Icon from "@/components/Icon";
 import Sidebar from "@/components/Sidebar";
+import SidebarAccount from "@/components/SidebarAccount";
 import SidebarLink from "@/components/SidebarLink";
 import SidebarMenu from "@/components/SidebarMenu";
 import SidebarNav from "@/components/SidebarNav";
+import { useAuthStore } from "@/stores/authStore";
 import { useSidebarStore } from "@/stores/sidebarStore";
 
 import "./SecureLayout.scss";
 
 const SecureLayout = () => {
+  const user = useAuthStore((state) => state.user);
+  const logout = useAuthStore((state) => state.logout);
   const isCollapsed = useSidebarStore((state) => state.isCollapsed);
+
+  if (!user) {
+    return null;
+  }
 
   return (
     <div className="secure-layout">
       <Sidebar isCollapsed={isCollapsed}>
+        <SidebarAccount
+          avatarUrl={user.avatarUrl}
+          email={user.email}
+          name={user.name}
+          onClick={logout}
+        />
         <SidebarNav>
           <SidebarMenu subHeading="General">
             <SidebarLink

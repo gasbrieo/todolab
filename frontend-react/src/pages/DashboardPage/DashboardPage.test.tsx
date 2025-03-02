@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { userEvent } from "@testing-library/user-event";
 
 import { useSidebarStore } from "@/stores/sidebarStore";
 
 import DashboardPage from "./DashboardPage";
 
 describe("DashboardPage", () => {
-  it("should render page elements", () => {
+  it("should render elements", () => {
     render(<DashboardPage />);
 
     expect(screen.getByText("Dashboard Page")).toBeInTheDocument();
