@@ -16,6 +16,7 @@
     "stylelint:fix": "stylelint ./src/**/*.{css,scss} --fix"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.5",
     "@tanstack/react-router": "^1.109.2",
     "classnames": "^2.5.1",
     "keycloak-js": "^26.2.0",

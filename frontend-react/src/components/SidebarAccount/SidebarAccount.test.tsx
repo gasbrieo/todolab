@@ -36,22 +36,22 @@ describe("SidebarAccount", () => {
     expect(screen.getByText("gabriel@todolab.com")).toBeInTheDocument();
   });
 
-  it("should trigger on click when button click", async () => {
-    const mockOnClick = vi.fn();
+  it("should trigger on logout when logout button click", async () => {
+    const mockOnLogout = vi.fn();
 
     render(
       <SidebarAccount
         avatarUrl="vite.svg"
         email="gabriel@todolab.com"
         name="Gabriel"
-        onClick={mockOnClick}
+        onLogout={mockOnLogout}
       />
     );
 
-    const logoutButton = screen.getByText("Gabriel");
-    await userEvent.click(logoutButton);
+    await userEvent.click(screen.getByText("Gabriel"));
+    await userEvent.click(screen.getByText("Logout"));
 
-    expect(mockOnClick).toHaveBeenCalledTimes(1);
+    expect(mockOnLogout).toHaveBeenCalledTimes(1);
   });
 
   it("should contain additional classnames", () => {

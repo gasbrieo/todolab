@@ -27,7 +27,7 @@ const SecureLayout = () => {
           avatarUrl={user.avatarUrl}
           email={user.email}
           name={user.name}
-          onClick={logout}
+          onLogout={logout}
         />
         <SidebarNav>
           <SidebarMenu subHeading="General">

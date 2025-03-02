@@ -38,8 +38,8 @@ describe("SecureLayout", () => {
   it("should trigger logout when sidebar account button click", async () => {
     render(<SecureLayout />);
 
-    const logoutButton = screen.getByText("Gabriel");
-    await userEvent.click(logoutButton);
+    await userEvent.click(screen.getByText("Gabriel"));
+    await userEvent.click(screen.getByText("Logout"));
 
     expect(keycloak.logout).toHaveBeenCalledTimes(1);
   });
