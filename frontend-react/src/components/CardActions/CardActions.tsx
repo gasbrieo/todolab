@@ -1,9 +1,11 @@
 import classNames from "classnames";
-import type { FC, HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
 
 import "./CardActions.scss";
 
-const CardActions: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => {
+interface CardActionsProps extends HTMLAttributes<HTMLDivElement> {}
+
+const CardActions = ({ children, className, ...rest }: CardActionsProps) => {
   return (
     <div
       className={classNames("card-actions", className)}

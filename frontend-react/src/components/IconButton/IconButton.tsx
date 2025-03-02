@@ -1,13 +1,15 @@
 import classNames from "classnames";
-import type { ButtonHTMLAttributes, FC } from "react";
+import { type ButtonHTMLAttributes, forwardRef } from "react";
 
 import "./IconButton.scss";
 
+type IconButtonSize = "small" | "medium" | "large";
+
 interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: "small" | "medium" | "large";
+  size?: IconButtonSize;
 }
 
-const IconButton: FC<IconButtonProps> = ({ children, className, size = "medium", ...rest }) => {
+const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({ children, className, size = "medium", ...rest }, ref) => {
   return (
     <button
       className={classNames(
@@ -17,11 +19,14 @@ const IconButton: FC<IconButtonProps> = ({ children, className, size = "medium",
         },
         className
       )}
+      ref={ref}
       {...rest}
     >
       {children}
     </button>
   );
-};
+});
+
+IconButton.displayName = "IconButton";
 
 export default IconButton;

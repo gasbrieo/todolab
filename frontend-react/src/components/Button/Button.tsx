@@ -1,16 +1,19 @@
 import classNames from "classnames";
-import { type ButtonHTMLAttributes, FC, ReactNode } from "react";
+import { type ButtonHTMLAttributes, type ReactNode, forwardRef } from "react";
 
 import "./Button.scss";
 
+type ButtonSize = "small" | "medium" | "large";
+type ButtonVariant = "text" | "contained" | "outlined";
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   endIcon?: ReactNode;
-  size?: "small" | "medium" | "large";
+  size?: ButtonSize;
   startIcon?: ReactNode;
-  variant?: "text" | "contained" | "outlined";
+  variant?: ButtonVariant;
 }
 
-const Button: FC<ButtonProps> = ({ children, className, endIcon, size = "medium", startIcon, variant = "text", ...rest }) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(({ children, className, endIcon, size = "medium", startIcon, variant = "text", ...rest }, ref) => {
   return (
     <button
       className={classNames(
@@ -21,6 +24,7 @@ const Button: FC<ButtonProps> = ({ children, className, endIcon, size = "medium"
         },
         className
       )}
+      ref={ref}
       {...rest}
     >
       {startIcon && <span className="button__icon button__icon--start">{startIcon}</span>}
@@ -28,6 +32,8 @@ const Button: FC<ButtonProps> = ({ children, className, endIcon, size = "medium"
       {endIcon && <span className="button__icon button__icon--end">{endIcon}</span>}
     </button>
   );
-};
+});
+
+Button.displayName = "Button";
 
 export default Button;
