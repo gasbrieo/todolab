@@ -7,7 +7,7 @@ type ListItemButtonProps<T extends ElementType = "button"> = {
   as?: T;
 } & ComponentPropsWithRef<T>;
 
-const ListItemButton = <T extends ElementType = "button">({ as, className, children, ...rest }: ListItemButtonProps<T>, ref: Ref<T>) => {
+const ListItemButton = <T extends ElementType = "button">({ as, className, children, ...rest }: ListItemButtonProps<T>, ref: Ref<HTMLElement>) => {
   const Component = as || "button";
 
   return (
