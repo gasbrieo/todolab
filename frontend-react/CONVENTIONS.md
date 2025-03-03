@@ -68,3 +68,15 @@ When writing unit tests, use the following conventions for test titles:
 
 - Use `em` only when you want an element to scale based on its parent's font size, like in buttons or nested components.
   - Example: `padding: 1em;` (depends on the font size of the button itself)
+
+## Structure Naming Conventions
+
+### Project Hierarchy
+
+- Spaces → High-level containers for organizing work.
+
+- Milestones → Major goals within a space.
+
+- Todos → Individual tasks or work items.
+
+- Checkpoints → Small steps within a todo, like a checklist.
