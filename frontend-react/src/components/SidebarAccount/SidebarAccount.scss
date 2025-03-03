@@ -56,3 +56,14 @@
     white-space: nowrap;
   }
 }
+
+.sidebar-account-popover {
+  &__user-info {
+    padding: 0 1rem;
+  }
+
+  &__action {
+    justify-content: flex-end;
+    padding: 0 1rem;
+  }
+}

@@ -22,7 +22,7 @@ vi.mock("@tanstack/react-router", () => ({
 
 describe("SecureLayout", () => {
   beforeEach(() => {
-    useAuthStore.setState({ user: { avatarUrl: "vite.svg", email: "gabriel@todolab.com", name: "Gabriel", token: "" } });
+    useAuthStore.setState({ user: { email: "gabriel@todolab.com", name: "Gabriel", token: "" } });
   });
 
   it("should render sidebar account", () => {
@@ -30,7 +30,7 @@ describe("SecureLayout", () => {
 
     const avatar = screen.getByAltText("Gabriel");
     expect(avatar).toBeInTheDocument();
-    expect(avatar).toHaveAttribute("src", "vite.svg");
+    expect(avatar).toHaveAttribute("src", "https://api.dicebear.com/7.x/initials/svg?seed=Gabriel");
     expect(screen.getByText("Gabriel")).toBeInTheDocument();
     expect(screen.getByText("gabriel@todolab.com")).toBeInTheDocument();
   });

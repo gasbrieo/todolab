@@ -8,7 +8,6 @@ describe("SidebarAccount", () => {
   it("should render elements", () => {
     render(
       <SidebarAccount
-        avatarUrl="vite.svg"
         email="gabriel@todolab.com"
         name="Gabriel"
       />
@@ -16,7 +15,7 @@ describe("SidebarAccount", () => {
 
     const avatar = screen.getByAltText("Gabriel");
     expect(avatar).toBeInTheDocument();
-    expect(avatar).toHaveAttribute("src", "vite.svg");
+    expect(avatar).toHaveAttribute("src", "https://api.dicebear.com/7.x/initials/svg?seed=Gabriel");
     expect(screen.getByText("Gabriel")).toBeInTheDocument();
     expect(screen.getByText("gabriel@todolab.com")).toBeInTheDocument();
   });
@@ -41,7 +40,6 @@ describe("SidebarAccount", () => {
 
     render(
       <SidebarAccount
-        avatarUrl="vite.svg"
         email="gabriel@todolab.com"
         name="Gabriel"
         onLogout={mockOnLogout}
@@ -57,7 +55,6 @@ describe("SidebarAccount", () => {
   it("should contain additional classnames", () => {
     const { container } = render(
       <SidebarAccount
-        avatarUrl="vite.svg"
         className="custom-class"
         email="gabriel@todolab.com"
         name="Gabriel"

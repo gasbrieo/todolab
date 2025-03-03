@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 import { keycloak, keycloakInitOptions } from "@/libs/keycloak";
 
-type User = { avatarUrl: string; email: string; name: string; token: string } | null;
+type User = { email: string; name: string; token: string } | null;
 
 type AuthState = {
   user: User | null;
@@ -20,7 +20,6 @@ export const useAuthStore = create<AuthState>((set) => ({
     if (authenticated) {
       set({
         user: {
-          avatarUrl: keycloak.tokenParsed?.picture ?? "",
           email: keycloak.tokenParsed?.email ?? "",
           name: keycloak.tokenParsed?.preferred_username ?? "",
           token: keycloak.token ?? "",

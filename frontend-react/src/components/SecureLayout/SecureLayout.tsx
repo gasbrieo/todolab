@@ -24,7 +24,6 @@ const SecureLayout = () => {
     <div className="secure-layout">
       <Sidebar isCollapsed={isCollapsed}>
         <SidebarAccount
-          avatarUrl={user.avatarUrl}
           email={user.email}
           name={user.name}
           onLogout={logout}
