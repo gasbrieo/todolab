@@ -7,7 +7,7 @@ import { keycloak } from "@/libs/keycloak";
 import WelcomePage from "./WelcomePage";
 
 describe("WelcomePage", () => {
-  it("should render page elements", () => {
+  it("should render elements", () => {
     render(<WelcomePage />);
 
     expect(screen.getByAltText("Logo")).toBeInTheDocument();

@@ -1,0 +1,9 @@
+.dashboard-page {
+  align-items: center;
+  display: flex;
+
+  &__toggle-sidebar {
+    color: rgb(0 0 0 / 50%);
+    margin-right: 0.5rem;
+  }
+}

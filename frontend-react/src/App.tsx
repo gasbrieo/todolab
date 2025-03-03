@@ -1,10 +1,10 @@
-import { type FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { RouterProvider } from "@tanstack/react-router";
 
-import router from "./router";
-import { useAuthStore } from "./stores/authStore";
+import router from "@/router";
+import { useAuthStore } from "@/stores/authStore";
 
-const App: FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(true);
   const init = useAuthStore((state) => state.init);
 

@@ -1,9 +1,9 @@
 import classNames from "classnames";
-import type { FC, HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
 
 import "./CardActions.scss";
 
-const CardActions: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => {
+const CardActions = ({ children, className, ...rest }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
       className={classNames("card-actions", className)}

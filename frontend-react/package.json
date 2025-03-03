@@ -16,6 +16,7 @@
     "stylelint:fix": "stylelint ./src/**/*.{css,scss} --fix"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.5",
     "@tanstack/react-router": "^1.109.2",
     "classnames": "^2.5.1",
     "keycloak-js": "^26.2.0",
@@ -46,6 +47,7 @@
     "globals": "^15.14.0",
     "jsdom": "^26.0.0",
     "prettier": "^3.5.1",
+    "rollup-plugin-visualizer": "^5.14.0",
     "sass": "^1.85.1",
     "stylelint": "^16.14.1",
     "stylelint-config-standard": "^37.0.0",

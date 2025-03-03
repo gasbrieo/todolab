@@ -1,0 +1,37 @@
+.sidebar-account-popover {
+  &__info {
+    padding: 0 1rem;
+  }
+
+  &__text {
+    .list-item-text__primary {
+      font-weight: 700;
+    }
+  }
+
+  &__action {
+    justify-content: flex-end;
+    padding: 0 0.5rem;
+  }
+}
+
+.sidebar-account {
+  padding: 1rem 0;
+
+  &__item {
+    overflow-x: hidden;
+    padding: 0 0.5rem;
+  }
+
+  &__button {
+    border-radius: 4px;
+    height: 48px;
+    padding: 0 0.25rem;
+  }
+
+  &__text {
+    .list-item-text__primary {
+      font-weight: 700;
+    }
+  }
+}

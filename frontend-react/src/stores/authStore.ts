@@ -2,10 +2,10 @@ import { create } from "zustand";
 
 import { keycloak, keycloakInitOptions } from "@/libs/keycloak";
 
-type User = { name: string; token: string } | null;
+type User = { email: string; name: string; token: string } | null;
 
 type AuthState = {
-  user: User;
+  user: User | null;
   init: () => Promise<void>;
   login: () => Promise<void>;
   logout: () => Promise<void>;
@@ -20,7 +20,8 @@ export const useAuthStore = create<AuthState>((set) => ({
     if (authenticated) {
       set({
         user: {
-          name: keycloak.tokenParsed?.preferred_username,
+          email: keycloak.tokenParsed?.email ?? "",
+          name: keycloak.tokenParsed?.preferred_username ?? "",
           token: keycloak.token ?? "",
         },
       });

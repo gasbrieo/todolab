@@ -1,12 +1,7 @@
-import type { FC } from "react";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 
-import Layout from "@/components/Layout";
+import SecureLayout from "@/components/SecureLayout";
 import { useAuthStore } from "@/stores/authStore";
-
-const RouteComponent: FC = () => {
-  return <Layout />;
-};
 
 export const Route = createFileRoute("/_secure")({
   beforeLoad: () => {
@@ -17,5 +12,5 @@ export const Route = createFileRoute("/_secure")({
       });
     }
   },
-  component: RouteComponent,
+  component: SecureLayout,
 });

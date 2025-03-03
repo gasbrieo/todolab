@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
+import { createMemoryHistory, RouterProvider } from "@tanstack/react-router";
 
 import App from "./App";
 import { keycloak } from "./libs/keycloak";
-import { createMemoryHistory, RouterProvider } from "@tanstack/react-router";
 import router from "./router";
 import { useAuthStore } from "./stores/authStore";
 
@@ -26,18 +26,18 @@ describe("App", () => {
 
   it("should render the dashboard page when user logged in", async () => {
     vi.mocked(keycloak.init).mockResolvedValue(true);
-    keycloak.tokenParsed = { preferred_username: "John Doe" };
+    keycloak.tokenParsed = {};
 
     render(<App />);
 
-    expect(await screen.findByText("DashboardPage")).toBeInTheDocument();
+    expect(await screen.findByText("Dashboard Page")).toBeInTheDocument();
   });
 });
 
 describe("Router", () => {
   describe("Dashboard", () => {
     it("should allow access to dashboard page when authenticated", async () => {
-      useAuthStore.setState({ user: { name: "", token: "" } });
+      useAuthStore.setState({ user: { email: "", name: "", token: "" } });
 
       const history = createMemoryHistory({ initialEntries: ["/dashboard"] });
 
@@ -48,7 +48,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("DashboardPage")).toBeInTheDocument();
+      expect(await screen.findByText("Dashboard Page")).toBeInTheDocument();
     });
 
     it("should redirect to welcome page when not authenticated", async () => {
@@ -69,7 +69,7 @@ describe("Router", () => {
 
   describe("Todos", () => {
     it("should allow access to todos page when authenticated", async () => {
-      useAuthStore.setState({ user: { name: "", token: "" } });
+      useAuthStore.setState({ user: { email: "", name: "", token: "" } });
 
       const history = createMemoryHistory({ initialEntries: ["/todos"] });
 
@@ -80,7 +80,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("TodosPage")).toBeInTheDocument();
+      expect(await screen.findByText("Todos Page")).toBeInTheDocument();
     });
 
     it("should redirect to welcome page when not authenticated", async () => {
@@ -116,7 +116,7 @@ describe("Router", () => {
     });
 
     it("should redirect to dashboard page when authenticated", async () => {
-      useAuthStore.setState({ user: { name: "", token: "" } });
+      useAuthStore.setState({ user: { email: "", name: "", token: "" } });
 
       const history = createMemoryHistory({ initialEntries: ["/"] });
 
@@ -127,7 +127,7 @@ describe("Router", () => {
         />
       );
 
-      expect(await screen.findByText("DashboardPage")).toBeInTheDocument();
+      expect(await screen.findByText("Dashboard Page")).toBeInTheDocument();
     });
   });
 });
