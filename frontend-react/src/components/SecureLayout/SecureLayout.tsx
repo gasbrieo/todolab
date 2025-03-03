@@ -1,7 +1,7 @@
+import { LayoutDashboardIcon, ListTodoIcon } from "lucide-react";
 import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import { Outlet } from "@tanstack/react-router";
 
-import Icon from "@/components/Icon";
 import Sidebar from "@/components/Sidebar";
 import SidebarAccount from "@/components/SidebarAccount";
 import SidebarMenu from "@/components/SidebarMenu";
@@ -33,12 +33,22 @@ const SecureLayout = () => {
             <SidebarLink
               to="/dashboard"
               text="Dashboard"
-              icon={<Icon name="LayoutDashboard" />}
+              icon={
+                <LayoutDashboardIcon
+                  width="1em"
+                  height="1em"
+                />
+              }
             />
             <SidebarLink
               to="/todos"
               text="Todos"
-              icon={<Icon name="ListTodo" />}
+              icon={
+                <ListTodoIcon
+                  width="1em"
+                  height="1em"
+                />
+              }
             />
           </SidebarMenu>
         </OverlayScrollbarsComponent>

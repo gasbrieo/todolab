@@ -1,10 +1,10 @@
 import type { CSSProperties } from "react";
+import { LogOutIcon } from "lucide-react";
 import { offset } from "@floating-ui/react";
 
 import Avatar from "@/components/Avatar";
 import Button from "@/components/Button";
 import Divider from "@/components/Divider";
-import Icon from "@/components/Icon";
 import List from "@/components/List";
 import ListItem from "@/components/ListItem";
 import ListItemAvatar from "@/components/ListItemAvatar";
@@ -54,7 +54,12 @@ const SidebarAccountPopover = ({ email, floatingStyles, isOpen, name, onLogout, 
           <Button
             size="small"
             variant="outlined"
-            startIcon={<Icon name="LogOut" />}
+            startIcon={
+              <LogOutIcon
+                width="1em"
+                height="1em"
+              />
+            }
             onClick={onLogout}
           >
             Logout

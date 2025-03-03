@@ -1,4 +1,5 @@
-import Icon from "@/components/Icon";
+import { MenuIcon } from "lucide-react";
+
 import IconButton from "@/components/IconButton";
 import Typography from "@/components/Typography";
 import { useSidebarStore } from "@/stores/sidebarStore";
@@ -15,7 +16,10 @@ const DashboardPage = () => {
         data-testid="dashboard-page_toggle-sidebar"
         onClick={toggle}
       >
-        <Icon name="Menu" />
+        <MenuIcon
+          width="1em"
+          height="1em"
+        />
       </IconButton>
       <Typography variant="h6">Dashboard Page</Typography>
     </div>
