@@ -16,37 +16,27 @@ vi.mock("@tanstack/react-router", () => ({
 }));
 
 describe("SidebarLink", () => {
-  it("should render content", () => {
-    render(<SidebarLink to="/">Content</SidebarLink>);
-
-    expect(screen.getByText("Content")).toBeInTheDocument();
-  });
-
-  it("should render content and icon", () => {
+  it("should render text", () => {
     render(
       <SidebarLink
         to="/"
-        icon={<span data-testid="icon" />}
-      >
-        Content
-      </SidebarLink>
+        text="Text"
+      />
     );
 
-    expect(screen.getByText("Content")).toBeInTheDocument();
-    expect(screen.getByTestId("icon")).toBeInTheDocument();
+    expect(screen.getByText("Text")).toBeInTheDocument();
   });
 
-  it("should contain additional classnames", () => {
-    const { container } = render(
+  it("should render text and icon", () => {
+    render(
       <SidebarLink
         to="/"
-        className="custom-class"
-      >
-        Content
-      </SidebarLink>
+        text="Text"
+        icon={<span data-testid="icon" />}
+      />
     );
 
-    expect(container.firstChild).toHaveClass("sidebar-link");
-    expect(container.firstChild).toHaveClass("custom-class");
+    expect(screen.getByText("Text")).toBeInTheDocument();
+    expect(screen.getByTestId("icon")).toBeInTheDocument();
   });
 });

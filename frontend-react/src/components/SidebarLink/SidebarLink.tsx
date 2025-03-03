@@ -1,34 +1,31 @@
-import classNames from "classnames";
 import type { ReactNode } from "react";
 import { type LinkProps, Link } from "@tanstack/react-router";
 
-import Typography from "@/components/Typography";
+import ListItem from "@/components/ListItem";
+import ListItemButton from "@/components/ListItemButton";
+import ListItemIcon from "@/components/ListItemIcon";
+import ListItemText from "@/components/ListItemText";
 
 import "./SidebarLink.scss";
 
 interface SidebarLinkProps extends Omit<LinkProps, "children"> {
-  children?: ReactNode;
-  className?: string;
   icon?: ReactNode;
+  text: string;
 }
 
-const SidebarLink = ({ children, className, icon, ...rest }: SidebarLinkProps) => {
+const SidebarLink = ({ icon, text, ...rest }: SidebarLinkProps) => {
   return (
-    <li className={classNames("sidebar-link", className)}>
-      <Link
+    <ListItem className="sidebar-link">
+      <ListItemButton
+        as={Link}
         className="sidebar-link__button"
         activeProps={{ className: "sidebar-link__button--active" }}
         {...rest}
       >
-        {icon && <div className="sidebar-link__icon">{icon}</div>}
-        <Typography
-          variant="body1"
-          className="sidebar-link__text"
-        >
-          {children}
-        </Typography>
-      </Link>
-    </li>
+        <ListItemIcon>{icon}</ListItemIcon>
+        <ListItemText primary={text} />
+      </ListItemButton>
+    </ListItem>
   );
 };
 

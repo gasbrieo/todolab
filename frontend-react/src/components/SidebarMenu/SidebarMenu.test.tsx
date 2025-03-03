@@ -1,34 +1,35 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@testing-library/react";
 
+import { SidebarContext } from "@/components/Sidebar/SidebarContext";
+
 import SidebarMenu from "./SidebarMenu";
-import { SidebarContext } from "../Sidebar/SidebarContext";
 
 describe("SidebarMenu", () => {
-  it("should render content", () => {
+  it("should render children", () => {
     render(
       <SidebarContext.Provider value={{ isCollapsed: false }}>
-        <SidebarMenu>Content</SidebarMenu>
+        <SidebarMenu>Children</SidebarMenu>
       </SidebarContext.Provider>
     );
 
-    expect(screen.getByText("Content")).toBeInTheDocument();
+    expect(screen.getByText("Children")).toBeInTheDocument();
   });
 
-  it("should render subHeading when provided", () => {
+  it("should render subheader when provided", () => {
     render(
       <SidebarContext.Provider value={{ isCollapsed: false }}>
-        <SidebarMenu subHeading="SubHeading">Content</SidebarMenu>
+        <SidebarMenu subheader="Subheader">Children</SidebarMenu>
       </SidebarContext.Provider>
     );
 
-    expect(screen.getByText("SubHeading")).toBeInTheDocument();
+    expect(screen.getByText("Subheader")).toBeInTheDocument();
   });
 
-  it("should render subHeading as ellipsis", () => {
+  it("should render subheader as ellipsis", () => {
     render(
       <SidebarContext.Provider value={{ isCollapsed: true }}>
-        <SidebarMenu subHeading="SubHeading">Content</SidebarMenu>
+        <SidebarMenu subheader="Subheader">Children</SidebarMenu>
       </SidebarContext.Provider>
     );
 
@@ -38,7 +39,7 @@ describe("SidebarMenu", () => {
   it("should contain additional classnames", () => {
     const { container } = render(
       <SidebarContext.Provider value={{ isCollapsed: false }}>
-        <SidebarMenu className="custom-class">Content</SidebarMenu>
+        <SidebarMenu className="custom-class">Children</SidebarMenu>
       </SidebarContext.Provider>
     );
 

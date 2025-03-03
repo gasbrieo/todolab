@@ -5,7 +5,7 @@ import Typography from "@/components/Typography";
 
 import "./ListItemText.scss";
 
-interface ListItemTextProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
+export interface ListItemTextProps extends Omit<HTMLAttributes<HTMLDivElement>, "children"> {
   primary: string;
   secondary?: string;
 }

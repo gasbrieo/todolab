@@ -1,4 +1,4 @@
-import classNames from "classnames";
+import type { CSSProperties } from "react";
 import { offset } from "@floating-ui/react";
 
 import Avatar from "@/components/Avatar";
@@ -8,89 +8,41 @@ import Icon from "@/components/Icon";
 import List from "@/components/List";
 import ListItem from "@/components/ListItem";
 import ListItemAvatar from "@/components/ListItemAvatar";
+import ListItemButton from "@/components/ListItemButton";
 import ListItemText from "@/components/ListItemText";
 import Popover from "@/components/Popover";
-import Typography from "@/components/Typography";
 import { usePopover } from "@/hooks/usePopover";
 
 import "./SidebarAccount.scss";
 
-interface SidebarAccountProps {
-  className?: string;
-  email: string;
-  name: string;
-  onLogout?: () => void;
-}
-
-const SidebarAccount = ({ className, email, name, onLogout }: SidebarAccountProps) => {
-  const { isOpen, toggleIsOpen, refs, floatingStyles } = usePopover({
-    placement: "right-start",
-    middleware: [offset(18)],
-  });
-
-  return (
-    <>
-      <button
-        className={classNames("sidebar-account", className)}
-        ref={refs.setReference}
-        onClick={toggleIsOpen}
-      >
-        <div className="sidebar-account__avatar">
-          <img
-            alt={name}
-            src={`https://api.dicebear.com/7.x/initials/svg?seed=${name}`}
-          />
-        </div>
-        <div className="sidebar-account__info">
-          <Typography
-            variant="body1"
-            className="sidebar-account__name"
-          >
-            {name}
-          </Typography>
-          <Typography
-            variant="caption"
-            className="sidebar-account__email"
-          >
-            {email}
-          </Typography>
-        </div>
-      </button>
-      <Popover
-        isOpen={isOpen}
-        ref={refs.setFloating}
-        style={floatingStyles}
-      >
-        <SidebarAccountPopover
-          email={email}
-          name={name}
-          onLogout={onLogout}
-        />
-      </Popover>
-    </>
-  );
-};
-
 interface SidebarAccountPopoverProps {
+  floatingStyles: CSSProperties;
+  isOpen?: boolean;
   email: string;
   name: string;
   onLogout?: () => void;
+  setFloating: (node: HTMLElement | null) => void;
 }
 
-const SidebarAccountPopover = ({ email, name, onLogout }: SidebarAccountPopoverProps) => {
+const SidebarAccountPopover = ({ email, floatingStyles, isOpen, name, onLogout, setFloating }: SidebarAccountPopoverProps) => {
   return (
-    <>
+    <Popover
+      isOpen={isOpen}
+      ref={setFloating}
+      style={floatingStyles}
+    >
       <List>
-        <ListItem className="sidebar-account-popover__user-info">
+        <ListItem className="sidebar-account-popover__info">
           <ListItemAvatar>
             <Avatar>
               <img
-                alt="Avatar"
+                alt={name}
                 src={`https://api.dicebear.com/7.x/initials/svg?seed=${name}`}
               />
             </Avatar>
           </ListItemAvatar>
           <ListItemText
+            className="sidebar-account-popover__text"
             primary={name}
             secondary={email}
           />
@@ -109,6 +61,55 @@ const SidebarAccountPopover = ({ email, name, onLogout }: SidebarAccountPopoverP
           </Button>
         </ListItem>
       </List>
+    </Popover>
+  );
+};
+
+interface SidebarAccountProps {
+  name: string;
+  email: string;
+  onLogout?: () => void;
+}
+
+const SidebarAccount = ({ name, email, onLogout }: SidebarAccountProps) => {
+  const { isOpen, toggleIsOpen, refs, floatingStyles } = usePopover({
+    placement: "right-start",
+    middleware: [offset(18)],
+  });
+
+  return (
+    <>
+      <List className="sidebar-account">
+        <ListItem className="sidebar-account__item">
+          <ListItemButton
+            className="sidebar-account__button"
+            ref={refs.setReference}
+            onClick={toggleIsOpen}
+          >
+            <ListItemAvatar>
+              <Avatar>
+                <img
+                  alt={name}
+                  src={`https://api.dicebear.com/7.x/initials/svg?seed=${name}`}
+                />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              className="sidebar-account__text"
+              primary={name}
+              secondary={email}
+            />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <SidebarAccountPopover
+        floatingStyles={floatingStyles}
+        isOpen={isOpen}
+        email={email}
+        name={name}
+        onLogout={onLogout}
+        setFloating={refs.setFloating}
+      />
     </>
   );
 };

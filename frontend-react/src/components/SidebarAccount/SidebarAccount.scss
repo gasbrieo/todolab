@@ -1,69 +1,37 @@
-.sidebar-account {
-  align-items: center;
-  appearance: none;
-  background: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  margin: 0.5rem;
-  overflow: hidden;
-  padding: 0.375rem;
-  text-align: left;
-  text-decoration: none;
-  transition:
-    background-color 200ms ease-in-out,
-    color 200ms ease-in-out;
-
-  &:hover {
-    background-color: rgb(0 0 0 / 10%);
-  }
-
-  &:active {
-    background-color: rgb(0 0 0 / 30%);
-  }
-
-  &__avatar {
-    align-items: center;
-    display: flex;
-    height: 35px;
-    justify-content: center;
-    margin-right: 1rem;
-    min-width: 35px;
-    width: 35px;
-
-    img {
-      border-radius: 4px;
-      height: 100%;
-      object-fit: cover;
-      width: 100%;
-    }
-  }
-
-  &__info {
-    flex-grow: 1;
-    overflow: hidden;
-  }
-
-  &__name {
-    font-weight: 600;
-  }
-
-  &__name,
-  &__email {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
-
 .sidebar-account-popover {
-  &__user-info {
+  &__info {
     padding: 0 1rem;
+  }
+
+  &__text {
+    .list-item-text__primary {
+      font-weight: 700;
+    }
   }
 
   &__action {
     justify-content: flex-end;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.sidebar-account {
+  padding: 1rem 0;
+
+  &__item {
+    overflow-x: hidden;
+    padding: 0 0.5rem;
+  }
+
+  &__button {
+    border-radius: 4px;
+    height: 48px;
+    padding: 0 0.25rem;
+  }
+
+  &__text {
+    .list-item-text__primary {
+      font-weight: 700;
+    }
   }
 }

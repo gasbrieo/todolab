@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { RouterProvider } from "@tanstack/react-router";
 
-import router from "./router";
-import { useAuthStore } from "./stores/authStore";
+import router from "@/router";
+import { useAuthStore } from "@/stores/authStore";
 
 const App = () => {
   const [loading, setLoading] = useState(true);

@@ -1,11 +1,11 @@
+import { OverlayScrollbarsComponent } from "overlayscrollbars-react";
 import { Outlet } from "@tanstack/react-router";
 
 import Icon from "@/components/Icon";
 import Sidebar from "@/components/Sidebar";
 import SidebarAccount from "@/components/SidebarAccount";
-import SidebarLink from "@/components/SidebarLink";
 import SidebarMenu from "@/components/SidebarMenu";
-import SidebarNav from "@/components/SidebarNav";
+import SidebarLink from "@/components/SidebarLink";
 import { useAuthStore } from "@/stores/authStore";
 import { useSidebarStore } from "@/stores/sidebarStore";
 
@@ -28,28 +28,24 @@ const SecureLayout = () => {
           name={user.name}
           onLogout={logout}
         />
-        <SidebarNav>
-          <SidebarMenu subHeading="General">
+        <OverlayScrollbarsComponent options={{ scrollbars: { autoHide: "leave" }, overflow: { x: "hidden" } }}>
+          <SidebarMenu subheader="General">
             <SidebarLink
               to="/dashboard"
+              text="Dashboard"
               icon={<Icon name="LayoutDashboard" />}
-            >
-              Dashboard
-            </SidebarLink>
+            />
             <SidebarLink
               to="/todos"
+              text="Todos"
               icon={<Icon name="ListTodo" />}
-            >
-              Todos
-            </SidebarLink>
+            />
           </SidebarMenu>
-        </SidebarNav>
+        </OverlayScrollbarsComponent>
       </Sidebar>
-      <div className="secure-layout__wrapper">
-        <main className="secure-layout__content">
-          <Outlet />
-        </main>
-      </div>
+      <main className="secure-layout__content">
+        <Outlet />
+      </main>
     </div>
   );
 };

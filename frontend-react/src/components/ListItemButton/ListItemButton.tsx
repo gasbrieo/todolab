@@ -1,18 +1,24 @@
 import classNames from "classnames";
-import { forwardRef, type ButtonHTMLAttributes } from "react";
+import { type ElementType, type ComponentPropsWithRef, type Ref, forwardRef } from "react";
 
 import "./ListItemButton.scss";
 
-const ListItemButton = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(({ children, className, ...rest }, ref) => {
+type ListItemButtonProps<T extends ElementType = "button"> = {
+  as?: T;
+} & ComponentPropsWithRef<T>;
+
+const ListItemButton = <T extends ElementType = "button">({ as, className, children, ...rest }: ListItemButtonProps<T>, ref: Ref<T>) => {
+  const Component = as || "button";
+
   return (
-    <button
+    <Component
       className={classNames("list-item-button", className)}
       ref={ref}
       {...rest}
     >
       {children}
-    </button>
+    </Component>
   );
-});
+};
 
-export default ListItemButton;
+export default forwardRef(ListItemButton);

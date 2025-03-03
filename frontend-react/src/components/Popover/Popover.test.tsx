@@ -4,14 +4,14 @@ import { render, screen } from "@testing-library/react";
 import Popover from "./Popover";
 
 describe("Popover", () => {
-  it("should render content when is open", () => {
-    render(<Popover isOpen>Content</Popover>);
+  it("should render children when is open", () => {
+    render(<Popover isOpen>Children</Popover>);
 
-    expect(screen.getByText("Content")).toBeInTheDocument();
+    expect(screen.getByText("Children")).toBeInTheDocument();
   });
 
   it("should render empty when is not open", () => {
-    const { container } = render(<Popover>Content</Popover>);
+    const { container } = render(<Popover>Children</Popover>);
 
     expect(container).toBeEmptyDOMElement();
   });
@@ -22,7 +22,7 @@ describe("Popover", () => {
         className="custom-class"
         isOpen
       >
-        Content
+        Children
       </Popover>
     );
 

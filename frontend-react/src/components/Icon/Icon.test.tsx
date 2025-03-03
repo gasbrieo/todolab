@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import Icon from "./Icon";
 
 describe("Icon", () => {
-  it("should render specified icon", () => {
+  it("should render icon", () => {
     render(
       <Icon
         name="LayoutDashboard"

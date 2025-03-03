@@ -1,25 +1,25 @@
 import classNames from "classnames";
 import type { HTMLAttributes } from "react";
 
+import List from "@/components/List";
+import ListSubheader from "@/components/ListSubheader";
 import { useSidebar } from "@/components/Sidebar";
 
-import "./SidebarMenu.scss";
-
-interface SidebarMenuProps extends HTMLAttributes<HTMLDivElement> {
-  subHeading?: string;
+interface SidebarMenuProps extends HTMLAttributes<HTMLUListElement> {
+  subheader?: string;
 }
 
-const SidebarMenu = ({ children, className, subHeading, ...rest }: SidebarMenuProps) => {
+const SidebarMenu = ({ children, className, subheader, ...rest }: SidebarMenuProps) => {
   const { isCollapsed } = useSidebar();
 
   return (
-    <div
+    <List
       className={classNames("sidebar-menu", className)}
       {...rest}
     >
-      {subHeading && <div className="sidebar-menu__sub-heading">{isCollapsed ? "..." : subHeading}</div>}
-      <ul className="sidebar-menu__content">{children}</ul>
-    </div>
+      <ListSubheader>{isCollapsed ? "..." : subheader}</ListSubheader>
+      {children}
+    </List>
   );
 };
 

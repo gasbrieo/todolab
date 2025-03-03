@@ -4,14 +4,14 @@ import { render, screen } from "@testing-library/react";
 import ListItemButton from "./ListItemButton";
 
 describe("ListItemButton", () => {
-  it("should render content", () => {
-    render(<ListItemButton>Content</ListItemButton>);
+  it("should render children", () => {
+    render(<ListItemButton>Children</ListItemButton>);
 
-    expect(screen.getByText("Content")).toBeInTheDocument();
+    expect(screen.getByText("Children")).toBeInTheDocument();
   });
 
   it("should contain additional classnames", () => {
-    const { container } = render(<ListItemButton className="custom-class">Content</ListItemButton>);
+    const { container } = render(<ListItemButton className="custom-class">Children</ListItemButton>);
 
     expect(container.firstChild).toHaveClass("list-item-button");
     expect(container.firstChild).toHaveClass("custom-class");
