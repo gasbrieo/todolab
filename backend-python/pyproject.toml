@@ -1,0 +1,46 @@
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "UP",
+    "S",
+    "B",
+    "C4",
+]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends"]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/**/*.py" = [
+    "S101",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"
+pythonpath = ["."]
+
+[tool.hatch.envs.default.scripts]
+install = "python -m pip install --upgrade pip && pip install -r requirements.txt"
+dev = "uvicorn app.main:app --reload"
+test = "pytest"
+test-coverage = "pytest --cov=app --cov-report=xml --cov-report=term"
+lint = "ruff check . && black --check ."
+lint-fix = "ruff check . --fix && black ."

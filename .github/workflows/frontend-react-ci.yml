@@ -4,8 +4,12 @@ on:
   workflow_dispatch:
   push:
     branches: ["main", "develop", "feature/*"]
+    paths:
+      - "frontend-react/**"
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+      - "frontend-react/**"
 
 jobs:
   ci:
