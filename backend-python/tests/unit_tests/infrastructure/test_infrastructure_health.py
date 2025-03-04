@@ -1,6 +1,6 @@
 from unittest.mock import Mock
 
-from app.core.health import HealthCheckResult, HealthStatus, IHealthCheck
+from app.core.health import HealthCheckResult, HealthStatus
 from app.infrastructure.health import (
     DatabaseHealthCheck,
     HealthService,
