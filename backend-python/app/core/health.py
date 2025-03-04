@@ -36,4 +36,4 @@ class HealthReport(BaseModel):
 class IHealthCheck(ABC):
     @abstractmethod
     def check(self) -> HealthCheckResult:
-        pass
+        raise NotImplementedError()

@@ -1,4 +1,6 @@
-from app.core.health import HealthCheckResult, HealthReport, HealthStatus
+from pytest import raises
+
+from app.core.health import HealthCheckResult, HealthReport, HealthStatus, IHealthCheck
 
 
 class TestHealthCheckResult:
@@ -70,3 +72,18 @@ class TestHealthReport:
         # Assert
         assert report.status == status
         assert report.entries is None
+
+
+class TestIHealthCheck:
+    def test_check_should_raise_not_implementend_error(self):
+        # Arrange
+        class BrokenHealthCheck(IHealthCheck):
+            def check(self) -> HealthCheckResult:
+                return super().check()
+
+        # Act
+        broken = BrokenHealthCheck()
+
+        # Assert
+        with raises(NotImplementedError):
+            broken.check()

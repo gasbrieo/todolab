@@ -42,4 +42,21 @@ jobs:
         run: hatch run lint
 
       - name: Run Tests
-        run: hatch run test
+        run: hatch run test-coverage
+
+      - name: Fix source in coverage.xml
+        run: sed -i 's#<source>.*</source>#<source>backend-python/app</source>#' coverage.xml
+      
+      - name: Run SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.BACKEND_PYTHON_SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=gasbrieo_todolab_backend-python
+            -Dsonar.projectName=todolab_backend-python
+            -Dsonar.organization=gasbrieo
+            -Dsonar.projectBaseDir=backend-python
+            -Dsonar.python.coverage.reportPaths=backend-python/coverage.xml
+            -Dsonar.sources=app
+            -Dsonar.exclusions=**/migrations/**,**/tests/**
