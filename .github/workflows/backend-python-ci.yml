@@ -4,8 +4,12 @@ on:
   workflow_dispatch:
   push:
     branches: ["main", "develop", "feature/*"]
+    paths:
+      - "backend-python/**"
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+      - "backend-python/**"
 
 jobs:
   ci:
