@@ -1,8 +1,9 @@
 from unittest.mock import Mock
+
 import pytest
 
 from app.core.health import HealthReport, HealthStatus
-from app.presentation.endpoints.health import get_liveness, get_readiness
+from app.presentation.routers.health_router import get_liveness, get_readiness
 from tests.test_helpers import parse_json_response
 
 

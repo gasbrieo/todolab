@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.presentation.endpoints.health import (
+from app.presentation.routers.health_router import (
     router as health_router,
 )
 

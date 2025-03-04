@@ -2,22 +2,16 @@ from fastapi import APIRouter, Depends, status
 from fastapi.responses import JSONResponse
 
 from app.core.health import HealthReport
-from app.infrastructure.health import (
-    DatabaseHealthCheck,
+from app.infrastructure.health.health_service import (
     HealthService,
     HealthStatus,
-    KeycloakHealthCheck,
 )
+from app.presentation.dependencies import get_health_service
 
 router = APIRouter(
     prefix="/health",
     tags=["health"],
 )
-
-
-def get_health_service() -> HealthService:
-    checkers = [DatabaseHealthCheck(), KeycloakHealthCheck()]
-    return HealthService(checkers=checkers)
 
 
 @router.get(
@@ -32,7 +26,9 @@ def get_health_service() -> HealthService:
         },
     },
 )
-async def get_liveness(service: HealthService = Depends(get_health_service)):
+async def get_liveness(
+    service: HealthService = Depends(get_health_service),
+) -> JSONResponse:
     health_report = service.check_liveness()
 
     if health_report.status == HealthStatus.HEALTHY:
@@ -61,7 +57,9 @@ async def get_liveness(service: HealthService = Depends(get_health_service)):
         },
     },
 )
-async def get_readiness(service: HealthService = Depends(get_health_service)):
+async def get_readiness(
+    service: HealthService = Depends(get_health_service),
+) -> JSONResponse:
     health_report = service.check_readiness()
 
     if health_report.status == HealthStatus.HEALTHY:

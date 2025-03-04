@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import List, Optional
+
 from pydantic import BaseModel
 
 
@@ -30,7 +30,7 @@ class HealthCheckResult(BaseModel):
 
 class HealthReport(BaseModel):
     status: HealthStatus
-    entries: Optional[List[HealthCheckResult]] = None
+    entries: list[HealthCheckResult] | None = None
 
 
 class IHealthCheck(ABC):

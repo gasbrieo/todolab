@@ -1,17 +1,15 @@
 from unittest.mock import Mock
 
 from app.core.health import HealthCheckResult, HealthStatus
-from app.infrastructure.health import (
-    DatabaseHealthCheck,
+from app.infrastructure.health.health_service import (
     HealthService,
-    KeycloakHealthCheck,
 )
 
 
 class TestHealthService:
     def test_check_liveness_should_return_healthy(self):
         # Arrange
-        service = HealthService(checkers=[])
+        service = HealthService(checks=[])
 
         # Act
         result = service.check_liveness()
@@ -29,7 +27,7 @@ class TestHealthService:
             description="Healthy Description",
         )
 
-        service = HealthService(checkers=[mock_healthy_check])
+        service = HealthService(checks=[mock_healthy_check])
 
         # Act
         result = service.check_readiness()
@@ -58,7 +56,7 @@ class TestHealthService:
         )
 
         service = HealthService(
-            checkers=[
+            checks=[
                 mock_healthy_check,
                 mock_unhealthy_check,
             ]
@@ -75,25 +73,3 @@ class TestHealthService:
 
         mock_healthy_check.check.assert_called_once()
         mock_unhealthy_check.check.assert_called_once()
-
-
-class TestDatabaseHealthCheck:
-    def test_check_should_return_healthy(self):
-        # Act
-        result = DatabaseHealthCheck().check()
-
-        # Assert
-        assert result.status == HealthStatus.HEALTHY
-        assert result.name == "Database"
-        assert result.description == "Database is responsive."
-
-
-class TestKeycloakHealthCheck:
-    def test_check_should_return_unhealthy(self):
-        # Act
-        result = KeycloakHealthCheck().check()
-
-        # Assert
-        assert result.status == HealthStatus.UNHEALTHY
-        assert result.name == "Keycloak"
-        assert result.description == "Keycloak is unavailable."
