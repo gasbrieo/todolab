@@ -1,7 +1,7 @@
-# Todolab
+# TodoLab
 
-![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/gasbrieo_todolab_backend-dotnet?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)
-![Sonar Coverage](https://img.shields.io/sonar/coverage/gasbrieo_todolab_backend-dotnet?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)
+![Sonar Quality Gate](https://img.shields.io/sonar/quality_gate/gasbrieo_TodoLab_backend-dotnet?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)
+![Sonar Coverage](https://img.shields.io/sonar/coverage/gasbrieo_TodoLab_backend-dotnet?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge)
 
 ## Overview
 
