@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todolab.UnitTests", "tests\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todolab.FunctionalTests", "tests\Todolab.FunctionalTests\Todolab.FunctionalTests.csproj", "{B7E27424-AD8B-426B-AFE5-7A567AEB7EB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todolab.IntegrationTests", "tests\Todolab.IntegrationTests\Todolab.IntegrationTests.csproj", "{230E5554-0A69-48DF-8F0E-E519E0F6A6B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{B7E27424-AD8B-426B-AFE5-7A567AEB7EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7E27424-AD8B-426B-AFE5-7A567AEB7EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7E27424-AD8B-426B-AFE5-7A567AEB7EB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230E5554-0A69-48DF-8F0E-E519E0F6A6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230E5554-0A69-48DF-8F0E-E519E0F6A6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230E5554-0A69-48DF-8F0E-E519E0F6A6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230E5554-0A69-48DF-8F0E-E519E0F6A6B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +66,6 @@ Global
 		{C199F233-17B3-4CAF-AEE5-644B0ED59DAC} = {493ABCED-98C9-487C-9E06-5BB7610D6937}
 		{D821975D-AF87-4763-891E-030D2D05C619} = {8D9343F9-6CFF-42C9-B868-C2D8A7F98E38}
 		{B7E27424-AD8B-426B-AFE5-7A567AEB7EB3} = {8D9343F9-6CFF-42C9-B868-C2D8A7F98E38}
+		{230E5554-0A69-48DF-8F0E-E519E0F6A6B0} = {8D9343F9-6CFF-42C9-B868-C2D8A7F98E38}
 	EndGlobalSection
 EndGlobal

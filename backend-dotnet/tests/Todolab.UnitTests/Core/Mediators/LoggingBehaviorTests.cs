@@ -1,8 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using Moq;
 using Todolab.Core.Mediators;
-using Todolab.UnitTests.TestHelpers;
 
 namespace Todolab.UnitTests.Core.Mediators;
 

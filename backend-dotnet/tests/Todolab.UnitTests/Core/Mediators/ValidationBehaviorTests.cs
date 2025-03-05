@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using MediatR;
-using Moq;
 using Todolab.Core.Mediators;
 
 namespace Todolab.UnitTests.Core.Mediators;
