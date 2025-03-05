@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace Todolab.Core.Mediators;
+namespace TodoLab.Core.Mediators;
 
 public class LoggingBehavior<TRequest, TResponse>(ILogger<Mediator> logger) : IPipelineBehavior<TRequest, TResponse> where TRequest : class
 {

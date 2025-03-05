@@ -1,5 +1,5 @@
-using Todolab.Presentation.Configurations;
-using Todolab.Presentation.Middlewares;
+using TodoLab.Presentation.Configurations;
+using TodoLab.Presentation.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 

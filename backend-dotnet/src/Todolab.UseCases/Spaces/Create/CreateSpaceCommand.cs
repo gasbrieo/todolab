@@ -1,6 +1,6 @@
-﻿using Todolab.Core.Mediators;
-using Todolab.Core.Results;
+﻿using TodoLab.Core.Mediators;
+using TodoLab.Core.Results;
 
-namespace Todolab.UseCases.Spaces.Create;
+namespace TodoLab.UseCases.Spaces.Create;
 
 public record CreateSpaceCommand(string Name) : ICommand<Result<SpaceDto>>;

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
-using Todolab.Presentation;
+using TodoLab.Presentation;
 
-namespace Todolab.FunctionalTests.TestHelpers;
+namespace TodoLab.FunctionalTests.TestHelpers;
 
 public class CustomWebApplicationFactory : WebApplicationFactory<IPresentationMarker>;

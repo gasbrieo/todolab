@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Todolab.Core.Mediators;
+namespace TodoLab.Core.Mediators;
 
 public abstract class DomainEventBase : INotification
 {

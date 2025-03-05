@@ -1,7 +1,7 @@
-﻿using Todolab.UseCases.Spaces;
-using Todolab.UseCases.Spaces.Create;
+﻿using TodoLab.UseCases.Spaces;
+using TodoLab.UseCases.Spaces.Create;
 
-namespace Todolab.FunctionalTests.Features.Spaces;
+namespace TodoLab.FunctionalTests.Features.Spaces;
 
 public class CreateSpaceTests(CustomWebApplicationFactory factory) : IClassFixture<CustomWebApplicationFactory>
 {

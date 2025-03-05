@@ -1,6 +1,6 @@
-﻿using Todolab.Core.Mediators;
+﻿using TodoLab.Core.Mediators;
 
-namespace Todolab.UnitTests.Core.Mediators;
+namespace TodoLab.UnitTests.Core.Mediators;
 
 public class DomainEventBaseTests
 {

@@ -1,8 +1,8 @@
-﻿using Todolab.Core.Results;
-using Todolab.Core.Spaces;
-using Todolab.UseCases.Spaces.Create;
+﻿using TodoLab.Core.Results;
+using TodoLab.Core.Spaces;
+using TodoLab.UseCases.Spaces.Create;
 
-namespace Todolab.UnitTests.UseCases.Spaces.Create;
+namespace TodoLab.UnitTests.UseCases.Spaces.Create;
 
 public class CreateSpaceHandlerTests
 {

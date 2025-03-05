@@ -1,1 +1,1 @@
-﻿global using Todolab.IntegrationTests.TestHelpers;
+﻿global using TodoLab.IntegrationTests.TestHelpers;

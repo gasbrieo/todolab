@@ -1,6 +1,6 @@
-﻿using Todolab.Presentation.Configurations.Conventions;
+﻿using TodoLab.Presentation.Configurations.Conventions;
 
-namespace Todolab.UnitTests.Presentation.Configurations.Conventions;
+namespace TodoLab.UnitTests.Presentation.Configurations.Conventions;
 
 public class KebabCaseTransformerTests
 {

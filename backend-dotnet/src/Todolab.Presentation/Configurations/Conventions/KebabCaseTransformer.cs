@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Todolab.Presentation.Configurations.Conventions;
+namespace TodoLab.Presentation.Configurations.Conventions;
 
 public partial class KebabCaseTransformer : IOutboundParameterTransformer
 {

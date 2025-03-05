@@ -1,4 +1,4 @@
-﻿namespace Todolab.Core.Results;
+﻿namespace TodoLab.Core.Results;
 
 public enum ResultStatus
 {

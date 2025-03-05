@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Todolab.Core.Results;
-using Todolab.Presentation.Controllers;
+using TodoLab.Core.Results;
+using TodoLab.Presentation.Controllers;
 
-namespace Todolab.UnitTests.Presentation.Controllers;
+namespace TodoLab.UnitTests.Presentation.Controllers;
 
 public class BaseControllerTests
 {

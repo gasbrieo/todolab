@@ -1,4 +1,4 @@
-﻿namespace Todolab.FunctionalTests.Features.Swagger;
+﻿namespace TodoLab.FunctionalTests.Features.Swagger;
 
 public class SwaggerTests(CustomWebApplicationFactory factory) : IClassFixture<CustomWebApplicationFactory>
 {

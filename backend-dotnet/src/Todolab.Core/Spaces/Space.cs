@@ -1,4 +1,4 @@
-﻿namespace Todolab.Core.Spaces;
+﻿namespace TodoLab.Core.Spaces;
 
 public class Space(string name)
 {

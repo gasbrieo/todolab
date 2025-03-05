@@ -1,6 +1,6 @@
-﻿using Todolab.Infrastructure;
+﻿using TodoLab.Infrastructure;
 
-namespace Todolab.Presentation.Configurations;
+namespace TodoLab.Presentation.Configurations;
 
 public static class ServiceConfigs
 {

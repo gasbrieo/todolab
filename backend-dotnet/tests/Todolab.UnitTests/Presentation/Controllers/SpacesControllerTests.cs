@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Todolab.Core.Results;
-using Todolab.Presentation.Controllers;
-using Todolab.UseCases.Spaces;
-using Todolab.UseCases.Spaces.Create;
+using TodoLab.Core.Results;
+using TodoLab.Presentation.Controllers;
+using TodoLab.UseCases.Spaces;
+using TodoLab.UseCases.Spaces.Create;
 
-namespace Todolab.UnitTests.Presentation.Controllers;
+namespace TodoLab.UnitTests.Presentation.Controllers;
 
 public class SpacesControllerTests
 {

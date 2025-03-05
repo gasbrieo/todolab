@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Todolab.Core.Results;
+using TodoLab.Core.Results;
 
-namespace Todolab.Presentation.Controllers;
+namespace TodoLab.Presentation.Controllers;
 
 [ApiController]
 [Route("api/v{version:apiVersion}/[controller]")]

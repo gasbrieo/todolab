@@ -1,3 +1,3 @@
-﻿namespace Todolab.Presentation;
+﻿namespace TodoLab.Presentation;
 
 public interface IPresentationMarker;

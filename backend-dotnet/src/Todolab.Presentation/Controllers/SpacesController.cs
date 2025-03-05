@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Todolab.UseCases.Spaces.Create;
+using TodoLab.UseCases.Spaces.Create;
 
-namespace Todolab.Presentation.Controllers;
+namespace TodoLab.Presentation.Controllers;
 
 public class SpacesController(ProblemDetailsFactory problemDetailsFactory, IMediator mediator) : BaseController(problemDetailsFactory)
 {

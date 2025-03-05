@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Todolab.FunctionalTests.TestHelpers;
+namespace TodoLab.FunctionalTests.TestHelpers;
 
 public static class ProblemDetailsAssertions
 {

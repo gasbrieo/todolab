@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Todolab.UseCases.Spaces.Create;
+namespace TodoLab.UseCases.Spaces.Create;
 
 public class CreateSpaceValidator : AbstractValidator<CreateSpaceCommand>
 {

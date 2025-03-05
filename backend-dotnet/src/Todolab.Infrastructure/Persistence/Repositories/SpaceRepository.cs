@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Todolab.Core.Spaces;
+using TodoLab.Core.Spaces;
 
-namespace Todolab.Infrastructure.Persistence.Repositories;
+namespace TodoLab.Infrastructure.Persistence.Repositories;
 
 public class SpaceRepository(AppDbContext context) : ISpaceRepository
 {

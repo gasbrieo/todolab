@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Todolab.UseCases\Todolab.UseCases.csproj" />
+		<ProjectReference Include="..\TodoLab.UseCases\TodoLab.UseCases.csproj" />
 	</ItemGroup>
 
 </Project>

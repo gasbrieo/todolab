@@ -3,7 +3,7 @@ using Serilog.Exceptions;
 using Serilog.Exceptions.Core;
 using Serilog.Exceptions.EntityFrameworkCore.Destructurers;
 
-namespace Todolab.Presentation.Configurations;
+namespace TodoLab.Presentation.Configurations;
 
 public static class LoggerConfigs
 {

@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using MediatR;
-using Todolab.Core.Mediators;
-using Todolab.UseCases;
+using TodoLab.Core.Mediators;
+using TodoLab.UseCases;
 
-namespace Todolab.Presentation.Configurations;
+namespace TodoLab.Presentation.Configurations;
 
 public static class MediatrConfigs
 {

@@ -1,8 +1,8 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using Todolab.Core.Mediators;
+using TodoLab.Core.Mediators;
 
-namespace Todolab.UnitTests.Core.Mediators;
+namespace TodoLab.UnitTests.Core.Mediators;
 
 public class LoggingBehaviorTests
 {

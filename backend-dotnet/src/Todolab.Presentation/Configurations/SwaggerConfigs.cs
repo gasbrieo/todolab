@@ -1,9 +1,9 @@
 ﻿using Asp.Versioning.ApiExplorer;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using Todolab.Presentation.Configurations.Swagger;
+using TodoLab.Presentation.Configurations.Swagger;
 
-namespace Todolab.Presentation.Configurations;
+namespace TodoLab.Presentation.Configurations;
 
 public static class SwaggerConfigs
 {

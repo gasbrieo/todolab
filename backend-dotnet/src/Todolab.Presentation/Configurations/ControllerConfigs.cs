@@ -3,9 +3,9 @@ using System.Text.Json.Serialization;
 using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
-using Todolab.Presentation.Configurations.Conventions;
+using TodoLab.Presentation.Configurations.Conventions;
 
-namespace Todolab.Presentation.Configurations;
+namespace TodoLab.Presentation.Configurations;
 
 public static class ControllerConfigs
 {

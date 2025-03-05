@@ -1,6 +1,6 @@
-﻿using Todolab.Core.Results;
+﻿using TodoLab.Core.Results;
 
-namespace Todolab.UnitTests.Core.Results;
+namespace TodoLab.UnitTests.Core.Results;
 
 public class ResultTests
 {

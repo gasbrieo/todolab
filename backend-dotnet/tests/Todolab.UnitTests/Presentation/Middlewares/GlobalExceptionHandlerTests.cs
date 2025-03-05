@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.Extensions.Logging;
-using Todolab.Presentation.Middlewares;
+using TodoLab.Presentation.Middlewares;
 
-namespace Todolab.UnitTests.Presentation.Middlewares;
+namespace TodoLab.UnitTests.Presentation.Middlewares;
 
 public class GlobalExceptionHandlerTests
 {

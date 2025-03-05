@@ -1,6 +1,6 @@
-﻿using Todolab.Core.Spaces;
+﻿using TodoLab.Core.Spaces;
 
-namespace Todolab.UnitTests.Core.Spaces;
+namespace TodoLab.UnitTests.Core.Spaces;
 
 public class SpaceTests
 {

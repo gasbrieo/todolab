@@ -1,6 +1,6 @@
-﻿using Todolab.UseCases.Spaces.Create;
+﻿using TodoLab.UseCases.Spaces.Create;
 
-namespace Todolab.UnitTests.UseCases.Spaces.Create;
+namespace TodoLab.UnitTests.UseCases.Spaces.Create;
 
 public class CreateSpaceValidatorTests
 {

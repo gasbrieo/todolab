@@ -4,7 +4,7 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<AssemblyTitle>Todolab</AssemblyTitle>
+		<AssemblyTitle>TodoLab</AssemblyTitle>
 		<Description>A fullstack To-Do application built with different technologies.</Description>
 		<NoWarn>$(NoWarn);1591;1573</NoWarn>
 	</PropertyGroup>
@@ -27,7 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Todolab.Infrastructure\Todolab.Infrastructure.csproj" />
+		<ProjectReference Include="..\TodoLab.Infrastructure\TodoLab.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>

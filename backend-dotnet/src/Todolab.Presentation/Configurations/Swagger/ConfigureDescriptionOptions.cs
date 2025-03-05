@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Todolab.Presentation.Configurations.Swagger;
+namespace TodoLab.Presentation.Configurations.Swagger;
 
 public class ConfigureDescriptionOptions : IConfigureOptions<SwaggerGenOptions>
 {

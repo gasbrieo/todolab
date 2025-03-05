@@ -1,8 +1,8 @@
-﻿using Todolab.Core.Mediators;
-using Todolab.Core.Results;
-using Todolab.Core.Spaces;
+﻿using TodoLab.Core.Mediators;
+using TodoLab.Core.Results;
+using TodoLab.Core.Spaces;
 
-namespace Todolab.UseCases.Spaces.Create;
+namespace TodoLab.UseCases.Spaces.Create;
 
 public class CreateSpaceHandler(ISpaceRepository repository) : ICommandHandler<CreateSpaceCommand, Result<SpaceDto>>
 {

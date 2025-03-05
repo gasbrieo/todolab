@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using FluentValidation;
-using Todolab.UseCases;
+using TodoLab.UseCases;
 
-namespace Todolab.Presentation.Configurations;
+namespace TodoLab.Presentation.Configurations;
 
 public static class FluentValidationConfigs
 {

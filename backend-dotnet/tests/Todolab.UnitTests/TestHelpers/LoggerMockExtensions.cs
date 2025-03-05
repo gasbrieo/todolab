@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Todolab.UnitTests.TestHelpers;
+namespace TodoLab.UnitTests.TestHelpers;
 
 public static class LoggerMockExtensions
 {

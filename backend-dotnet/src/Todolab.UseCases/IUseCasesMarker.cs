@@ -1,3 +1,3 @@
-﻿namespace Todolab.UseCases;
+﻿namespace TodoLab.UseCases;
 
 public interface IUseCasesMarker;

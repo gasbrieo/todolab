@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Todolab.Infrastructure.Persistence;
+using TodoLab.Infrastructure.Persistence;
 
-namespace Todolab.IntegrationTests.TestHelpers;
+namespace TodoLab.IntegrationTests.TestHelpers;
 
 public class AppDbContextFixture : IDisposable
 {

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Todolab.Core.Spaces;
+using TodoLab.Core.Spaces;
 
-namespace Todolab.Infrastructure.Persistence.Configurations;
+namespace TodoLab.Infrastructure.Persistence.Configurations;
 
 public class SpaceConfiguration : IEntityTypeConfiguration<Space>
 {

@@ -1,4 +1,4 @@
 ﻿global using System.Net;
 global using System.Net.Http.Json;
 global using Microsoft.AspNetCore.Mvc;
-global using Todolab.FunctionalTests.TestHelpers;
+global using TodoLab.FunctionalTests.TestHelpers;

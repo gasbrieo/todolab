@@ -1,7 +1,7 @@
-﻿using Todolab.Core.Spaces;
-using Todolab.Infrastructure.Persistence.Repositories;
+﻿using TodoLab.Core.Spaces;
+using TodoLab.Infrastructure.Persistence.Repositories;
 
-namespace Todolab.IntegrationTests.Repositories;
+namespace TodoLab.IntegrationTests.Repositories;
 
 public class SpaceRepositoryTests : IClassFixture<AppDbContextFixture>
 {

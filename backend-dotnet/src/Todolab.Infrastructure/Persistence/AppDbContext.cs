@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using Todolab.Core.Spaces;
+using TodoLab.Core.Spaces;
 
-namespace Todolab.Infrastructure.Persistence;
+namespace TodoLab.Infrastructure.Persistence;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
