@@ -23,7 +23,7 @@ public class TodoListsController(ProblemDetailsFactory problemDetailsFactory, IM
     /// <param name="request">Pagination parameters.</param>
     /// <returns>A list of TodoLists.</returns>
     /// <response code="200">Successfully retrieved TodoLists.</response>
-    /// <response code="400">If pagination parameters are invalid.</response>
+    /// <response code="400">Provided data is invalid.</response>
     [HttpGet]
     [ProducesResponseType(typeof(PagedList<TodoListDto>), 200)]
     [ProducesResponseType(typeof(ProblemDetails), 400)]
@@ -40,7 +40,7 @@ public class TodoListsController(ProblemDetailsFactory problemDetailsFactory, IM
     /// <param name="id">ID of the TodoList.</param>
     /// <returns>Details of the TodoList.</returns>
     /// <response code="200">Successfully retrieved the TodoList.</response>
-    /// <response code="400">If the provided data is invalid.</response>
+    /// <response code="400">Provided data is invalid.</response>
     /// <response code="404">TodoList not found.</response>
     [HttpGet("{id:guid}")]
     [ProducesResponseType(typeof(TodoListDto), 200)]
@@ -59,7 +59,7 @@ public class TodoListsController(ProblemDetailsFactory problemDetailsFactory, IM
     /// <param name="request">Data to create a new TodoList.</param>
     /// <returns>Result of the creation.</returns>
     /// <response code="201">Successfully created the TodoList.</response>
-    /// <response code="400">If the provided data is invalid.</response>
+    /// <response code="400">Provided data is invalid.</response>
     [HttpPost]
     [ProducesResponseType(typeof(TodoListDto), 201)]
     [ProducesResponseType(typeof(ProblemDetails), 400)]
@@ -77,7 +77,7 @@ public class TodoListsController(ProblemDetailsFactory problemDetailsFactory, IM
     /// <param name="request">Data to update the TodoList.</param>
     /// <returns>Result of the update.</returns>
     /// <response code="200">Successfully updated the TodoList.</response>
-    /// <response code="400">If the provided data is invalid.</response>
+    /// <response code="400">Provided data is invalid.</response>
     /// <response code="404">TodoList not found.</response>
     [HttpPut("{id:guid}")]
     [ProducesResponseType(typeof(TodoListDto), 200)]
@@ -96,7 +96,7 @@ public class TodoListsController(ProblemDetailsFactory problemDetailsFactory, IM
     /// <param name="id">ID of the TodoList to delete.</param>
     /// <returns>Result of the deletion.</returns>
     /// <response code="200">Successfully deleted the TodoList.</response>
-    /// <response code="400">If the provided data is invalid.</response>
+    /// <response code="400">Provided data is invalid.</response>
     /// <response code="404">TodoList not found.</response>
     [HttpDelete("{id:guid}")]
     [ProducesResponseType(200)]
