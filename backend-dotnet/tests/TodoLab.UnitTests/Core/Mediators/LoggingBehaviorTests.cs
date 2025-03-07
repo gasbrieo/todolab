@@ -6,13 +6,13 @@ namespace TodoLab.UnitTests.Core.Mediators;
 
 public class LoggingBehaviorTests
 {
-    private readonly Mock<ILogger<Mediator>> _logger = new();
-    private readonly Mock<RequestHandlerDelegate<int>> _delegate = new();
+    private readonly Mock<ILogger<Mediator>> _loggerMock = new();
+    private readonly Mock<RequestHandlerDelegate<int>> _delegateMock = new();
     private readonly LoggingBehavior<SampleRequest, int> _behavior;
 
     public LoggingBehaviorTests()
     {
-        _behavior = new LoggingBehavior<SampleRequest, int>(_logger.Object);
+        _behavior = new LoggingBehavior<SampleRequest, int>(_loggerMock.Object);
     }
 
     [Fact]
@@ -20,16 +20,16 @@ public class LoggingBehaviorTests
     {
         // Arrange
         var request = new SampleRequest();
-        _delegate.Setup(n => n()).ReturnsAsync(1);
+        _delegateMock.Setup(n => n()).ReturnsAsync(1);
 
         // Act
-        var response = await _behavior.Handle(request, _delegate.Object, CancellationToken.None);
+        var response = await _behavior.Handle(request, _delegateMock.Object, CancellationToken.None);
 
         // Assert
         Assert.Equal(1, response);
-        _delegate.Verify(handler => handler(), Times.Once);
-        _logger.VerifyLog(LogLevel.Information, $"Handling {nameof(SampleRequest)}", Times.Once);
-        _logger.VerifyLog(LogLevel.Information, $"Handled {nameof(SampleRequest)}", Times.Once);
+        _delegateMock.Verify(handler => handler(), Times.Once);
+        _loggerMock.VerifyLog(LogLevel.Information, $"Handling {nameof(SampleRequest)}", Times.Once);
+        _loggerMock.VerifyLog(LogLevel.Information, $"Handled {nameof(SampleRequest)}", Times.Once);
     }
 
     [Fact]
@@ -37,13 +37,13 @@ public class LoggingBehaviorTests
     {
         // Arrange
         var request = new SampleRequest();
-        _delegate.Setup(n => n()).ThrowsAsync(new Exception("Test Exception"));
+        _delegateMock.Setup(n => n()).ThrowsAsync(new Exception("Exception"));
 
         // Act & Assert
-        await Assert.ThrowsAsync<Exception>(() => _behavior.Handle(request, _delegate.Object, CancellationToken.None));
-        _delegate.Verify(handler => handler(), Times.Once);
-        _logger.VerifyLog(LogLevel.Information, $"Handling {nameof(SampleRequest)}", Times.Once);
-        _logger.VerifyLog(LogLevel.Error, $"Error while handling {nameof(SampleRequest)}", Times.Once);
+        await Assert.ThrowsAsync<Exception>(() => _behavior.Handle(request, _delegateMock.Object, CancellationToken.None));
+        _delegateMock.Verify(handler => handler(), Times.Once);
+        _loggerMock.VerifyLog(LogLevel.Information, $"Handling {nameof(SampleRequest)}", Times.Once);
+        _loggerMock.VerifyLog(LogLevel.Error, $"Error while handling {nameof(SampleRequest)}", Times.Once);
     }
 
     public record SampleRequest : IRequest<int>;

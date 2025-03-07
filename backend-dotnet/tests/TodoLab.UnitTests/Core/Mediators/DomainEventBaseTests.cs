@@ -5,7 +5,7 @@ namespace TodoLab.UnitTests.Core.Mediators;
 public class DomainEventBaseTests
 {
     [Fact]
-    public void Ctor_ShouldSetPropertiesProperly()
+    public void Constructor_ShouldSetPropertiesProperly()
     {
         // Arrange & Act
         var domainEvent = new SampleDomainEvent();

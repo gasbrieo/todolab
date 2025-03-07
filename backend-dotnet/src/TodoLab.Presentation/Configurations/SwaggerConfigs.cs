@@ -1,4 +1,5 @@
-﻿using Asp.Versioning.ApiExplorer;
+﻿using System.Reflection;
+using Asp.Versioning.ApiExplorer;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TodoLab.Presentation.Configurations.Swagger;
@@ -12,7 +13,7 @@ public static class SwaggerConfigs
         return services
             .AddSwaggerGen(options =>
             {
-                options.EnableAnnotations();
+                options.ConfigureXmlDocs();
             })
             .AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureDescriptionOptions>();
     }
@@ -30,5 +31,20 @@ public static class SwaggerConfigs
                     options.SwaggerEndpoint($"/swagger/{groupName}/swagger.json", groupName.ToUpper());
                 }
             });
+    }
+
+    private static void ConfigureXmlDocs(this SwaggerGenOptions options)
+    {
+        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+        foreach (var assembly in assemblies)
+        {
+            var xmlPath = Path.Combine(AppContext.BaseDirectory, $"{assembly.GetName().Name}.xml");
+
+            if (File.Exists(xmlPath))
+            {
+                options.IncludeXmlComments(xmlPath);
+            }
+        }
     }
 }

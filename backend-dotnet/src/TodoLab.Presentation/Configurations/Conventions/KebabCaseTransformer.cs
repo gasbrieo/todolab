@@ -13,7 +13,10 @@ public partial class KebabCaseTransformer : IOutboundParameterTransformer
     {
         var text = value?.ToString();
 
-        if (string.IsNullOrEmpty(text)) return null;
+        if (string.IsNullOrEmpty(text))
+        {
+            return null;
+        }
 
         return KebabRegex.Replace(text, "$1-$2").ToLower();
     }

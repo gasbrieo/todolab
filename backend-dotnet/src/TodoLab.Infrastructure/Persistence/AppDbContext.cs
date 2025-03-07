@@ -1,12 +1,12 @@
 ﻿using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using TodoLab.Core.Spaces;
+using TodoLab.Core.TodoListAggregate;
 
 namespace TodoLab.Infrastructure.Persistence;
 
 public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    public DbSet<Space> Spaces { get; set; }
+    public DbSet<TodoList> TodoLists { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

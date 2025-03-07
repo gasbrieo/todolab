@@ -8,14 +8,14 @@ namespace TodoLab.UnitTests.Presentation.Controllers;
 
 public class BaseControllerTests
 {
-    private readonly Mock<ProblemDetailsFactory> _factory = new();
+    private readonly Mock<ProblemDetailsFactory> _factoryMock = new();
     private readonly SampleController _controller;
 
     public BaseControllerTests()
     {
-        _controller = new SampleController(_factory.Object);
+        _controller = new SampleController(_factoryMock.Object);
 
-        _factory
+        _factoryMock
             .Setup(f => f.CreateProblemDetails(It.IsAny<HttpContext>(), It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
             .Returns((HttpContext context, int status, string title, string type, string detail, string instance) =>
                 new ProblemDetails

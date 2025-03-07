@@ -10,14 +10,14 @@ namespace TodoLab.UnitTests.Presentation.Middlewares;
 
 public class GlobalExceptionHandlerTests
 {
-    private readonly Mock<ILogger<GlobalExceptionHandler>> logger = new();
-    private readonly Mock<ProblemDetailsFactory> _problemDetailsFactory = new();
+    private readonly Mock<ILogger<GlobalExceptionHandler>> loggerMock = new();
+    private readonly Mock<ProblemDetailsFactory> _problemDetailsFactoryMock = new();
     private readonly DefaultHttpContext _context = new();
     private readonly GlobalExceptionHandler _handler;
 
     public GlobalExceptionHandlerTests()
     {
-        _problemDetailsFactory
+        _problemDetailsFactoryMock
             .Setup(f => f.CreateProblemDetails(It.IsAny<HttpContext>(), It.IsAny<int>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
             .Returns((HttpContext context, int status, string title, string type, string detail, string instance) =>
                 new ProblemDetails
@@ -34,7 +34,7 @@ public class GlobalExceptionHandlerTests
         _context.Request.Path = "/api/v1/error";
         _context.Response.Body = new MemoryStream();
 
-        _handler = new(logger.Object, _problemDetailsFactory.Object);
+        _handler = new(loggerMock.Object, _problemDetailsFactoryMock.Object);
     }
 
     [Fact]
@@ -89,6 +89,6 @@ public class GlobalExceptionHandlerTests
         Assert.Equal("Internal Server Error", errorResponse.Title);
         Assert.Equal("An unexpected error occurred. Please, try again later.", errorResponse.Detail);
 
-        logger.VerifyLog(LogLevel.Error, $"An unexpected error occurred: {exception.Message}", Times.Once);
+        loggerMock.VerifyLog(LogLevel.Error, $"An unexpected error occurred: {exception.Message}", Times.Once);
     }
 }

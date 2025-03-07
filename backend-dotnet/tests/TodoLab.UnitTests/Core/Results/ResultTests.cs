@@ -5,13 +5,13 @@ namespace TodoLab.UnitTests.Core.Results;
 public class ResultTests
 {
     [Fact]
-    public void Ctor_ShouldSetPropertiesProperly()
+    public void Constructor_WithStatus_ShouldSetPropertiesProperly()
     {
         // Arrange
         var status = ResultStatus.Ok;
 
         // Act
-        var result = new Result(status);
+        var result = new Result<string>(status);
 
         // Assert
         Assert.Equal(status, result.Status);
@@ -19,58 +19,23 @@ public class ResultTests
     }
 
     [Fact]
-    public void Ok_ShouldCreateOkResult()
+    public void Constructor_WithStatusAndValue_ShouldSetPropertiesProperly()
     {
         // Arrange
+        var status = ResultStatus.Ok;
         var value = "Value";
 
         // Act
-        var result = Result.Ok(value);
+        var result = new Result<string>(status, value);
 
         // Assert
-        Assert.Equal(ResultStatus.Ok, result.Status);
+        Assert.Equal(status, result.Status);
         Assert.Equal(value, result.Value);
-    }
-
-    [Fact]
-    public void NoContent_ShouldCreateNoContentResult()
-    {
-        // Arrange & Act
-        var result = Result.NoContent();
-
-        // Assert
-        Assert.Equal(ResultStatus.NoContent, result.Status);
         Assert.Empty(result.Errors);
     }
 
     [Fact]
-    public void BadRequest_ShouldCreateBadRequestResult()
-    {
-        // Arrange
-        var error = "Error";
-
-        // Act
-        var result = Result.BadRequest(error);
-
-        // Assert
-        Assert.Equal(ResultStatus.BadRequest, result.Status);
-        Assert.Single(result.Errors);
-        Assert.Equal(error, result.Errors.First());
-    }
-
-    [Fact]
-    public void NotFound_ShouldCreateNotFoundResult()
-    {
-        // Arrange & Act
-        var result = Result.NotFound();
-
-        // Assert
-        Assert.Equal(ResultStatus.NotFound, result.Status);
-        Assert.Empty(result.Errors);
-    }
-
-    [Fact]
-    public void Result_WhenImplicitConversionToGeneric_ShouldPreserveStatus()
+    public void ImplicitConversionFromResult_ShouldPreserveStatus()
     {
         // Arrange
         var status = ResultStatus.Ok;
@@ -86,7 +51,7 @@ public class ResultTests
     }
 
     [Fact]
-    public void ResultWithErrors_WhenImplicitConversionToGeneric_ShouldPreserveErrors()
+    public void ImplicitConversionFromResult_ShouldPreserveErrors()
     {
         // Arrange
         var error = "Error";
@@ -103,7 +68,7 @@ public class ResultTests
     }
 
     [Fact]
-    public void Value_WhenImplicitConversionToResult_ShouldSetValue()
+    public void ImplicitConversionFromValue_ShouldPreserveValue()
     {
         // Arrange
         var value = "Value";

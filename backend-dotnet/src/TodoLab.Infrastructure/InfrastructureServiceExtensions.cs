@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using TodoLab.Core.Spaces;
+using TodoLab.Core.TodoListAggregate;
 using TodoLab.Infrastructure.Persistence;
 using TodoLab.Infrastructure.Persistence.Repositories;
+using TodoLab.Infrastructure.Persistence.Services;
+using TodoLab.UseCases.TodoListAggregate.List;
 
 namespace TodoLab.Infrastructure;
 
@@ -13,7 +15,8 @@ public static class InfrastructureServiceExtensions
         services.AddDbContext<AppDbContext>(options =>
             options.UseInMemoryDatabase("TodoLab"));
 
-        services.AddScoped<ISpaceRepository, SpaceRepository>();
+        services.AddScoped<ITodoListRepository, TodoListRepository>();
+        services.AddScoped<IListTodoListService, ListTodoListService>();
 
         return services;
     }

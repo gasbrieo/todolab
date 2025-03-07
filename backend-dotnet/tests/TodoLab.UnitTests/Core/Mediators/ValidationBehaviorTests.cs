@@ -6,27 +6,27 @@ namespace TodoLab.UnitTests.Core.Mediators;
 
 public class ValidationBehaviorTests
 {
-    private readonly Mock<RequestHandlerDelegate<int>> _delegate = new();
+    private readonly Mock<RequestHandlerDelegate<int>> _delegateMock = new();
 
     public ValidationBehaviorTests()
     {
-        _delegate.Setup(n => n()).ReturnsAsync(1);
+        _delegateMock.Setup(n => n()).ReturnsAsync(1);
     }
 
     [Fact]
     public async Task Handle_WhenHasNoValidators_ShouldProcessRequest()
     {
         // Arrange
-        var request = new SampleRequest("");
+        var request = new SampleRequest(string.Empty);
         var validators = new List<IValidator<SampleRequest>>();
         var behavior = new ValidationBehavior<SampleRequest, int>(validators);
 
         // Act
-        var response = await behavior.Handle(request, _delegate.Object, CancellationToken.None);
+        var response = await behavior.Handle(request, _delegateMock.Object, CancellationToken.None);
 
         // Assert
         Assert.Equal(1, response);
-        _delegate.Verify(n => n(), Times.Once);
+        _delegateMock.Verify(n => n(), Times.Once);
     }
 
     [Fact]
@@ -38,24 +38,24 @@ public class ValidationBehaviorTests
         var behavior = new ValidationBehavior<SampleRequest, int>(validators);
 
         // Act
-        var response = await behavior.Handle(request, _delegate.Object, CancellationToken.None);
+        var response = await behavior.Handle(request, _delegateMock.Object, CancellationToken.None);
 
         // Assert
         Assert.Equal(1, response);
-        _delegate.Verify(n => n(), Times.Once);
+        _delegateMock.Verify(n => n(), Times.Once);
     }
 
     [Fact]
     public async Task Handle_WhenFailValidations_ShouldThrowValidationException()
     {
         // Arrange
-        var request = new SampleRequest("");
+        var request = new SampleRequest(string.Empty);
         var validators = new List<IValidator<SampleRequest>> { new SampleRequestValidator() };
         var behavior = new ValidationBehavior<SampleRequest, int>(validators);
 
         // Act & Assert
-        await Assert.ThrowsAsync<ValidationException>(() => behavior.Handle(request, _delegate.Object, CancellationToken.None));
-        _delegate.Verify(n => n(), Times.Never);
+        await Assert.ThrowsAsync<ValidationException>(() => behavior.Handle(request, _delegateMock.Object, CancellationToken.None));
+        _delegateMock.Verify(n => n(), Times.Never);
     }
 
     public record SampleRequest(string Name) : IRequest<int>;
